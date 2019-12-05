@@ -1,7 +1,8 @@
-const Sequelize = require("sequelize");
-const db = require("./database");
+const Sequelize = require('sequelize');
+const db = require('./database');
+const Campus = require('./campus');
 
-const Student = db.define("student", {
+const Student = db.define('student', {
   firstName: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -24,7 +25,7 @@ const Student = db.define("student", {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    defaultValue: "https://randomuser.me/api/portraits/med/women/76.jpg"
+    defaultValue: 'https://robohash.org/default?set=set2'
   },
   gpa: {
     type: Sequelize.DOUBLE,

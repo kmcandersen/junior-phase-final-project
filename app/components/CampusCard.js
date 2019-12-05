@@ -16,15 +16,18 @@ const CampusCard = ({ id, name, address, description, imageUrl }) => {
           <div className="extra content">
             <span className="right floated">{address}</span>
             <span>
-              <i className="power off icon"></i>
+              <i class="map marker alternate icon"></i>
               Address
             </span>
           </div>
           <div className="extra content">
-            <span className="right floated">{description}</span>
+            {/* <span className="right floated">{description}</span> */}
+            <span>{description}</span>
+          </div>
+          <div className="extra content">
             <span>
-              <i className="tachometer alternate icon"></i>
-              Description
+              <i class="user icon"></i>
+              53 Students
             </span>
           </div>
         </div>

@@ -11,10 +11,10 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-// GET api/students/:studentId
-router.get('/:studentId', async (req, res, next) => {
+// GET api/students/:id
+router.get('/:id', async (req, res, next) => {
   try {
-    const result = await Student.findByPk(req.params.studentId);
+    const result = await Student.findByPk(req.params.id);
     console.log('result from API', result);
     res.send(result);
   } catch (err) {

@@ -13,7 +13,8 @@ export const fetchSingleStudent = id => {
   return async dispatch => {
     try {
       const { data } = await axios.get(`/api/students/${id}`);
-      dispatch(fetchSingleStudent(data));
+      console.log('inside thunk: ', data);
+      dispatch(setSingleStudent(data));
     } catch (err) {
       console.log(err);
     }

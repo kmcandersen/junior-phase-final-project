@@ -40,7 +40,7 @@ class Root extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/students" component={AllStudents} />
             <Route exact path="/campuses" component={AllCampuses} />
-            <Route path="/students/:studentId" component={StudentProfile} />
+            <Route path="/students/:id" component={StudentProfile} />
             {/* <Route path="/campuses/:campusId" component={CampusProfile} /> */}
           </Switch>
         </div>
