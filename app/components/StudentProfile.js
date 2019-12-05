@@ -15,13 +15,25 @@ class StudentProfile extends Component {
 
   render() {
     const student = this.props.student;
+    // const {
+    //   imageUrl,
+    //   firstName,
+    //   lastName,
+    //   campus,
+    //   gpa,
+    //   email
+    // } = this.props.student;
 
     const imageUrl = student.imageUrl || '';
     const firstName = student.firstName || '';
     const lastName = student.lastName || '';
-    const campus = student.campus || {};
+    //const campus = student.campus || {};
     const gpa = student.gpa || 0.0;
     const email = student.email || '';
+
+    const notEnrolled = 'Not currently enrolled';
+    const campus = this.props.student.campus || notEnrolled;
+
     return (
       <div className="custom-list">
         <div className="ui divided items custom-items ">
@@ -32,11 +44,17 @@ class StudentProfile extends Component {
             <div className="content">
               <span className="header">{`${firstName} ${lastName}`}</span>
 
-              <Link to={`/campuses/${campus.id}`}>
+              {campus === 'Not currently enrolled' ? (
                 <div className="meta">
-                  <span className="cinema">{campus.name} campus</span>
+                  <span className="cinema">{notEnrolled}</span>
                 </div>
-              </Link>
+              ) : (
+                <Link to={`/campuses/${campus.id}`}>
+                  <div className="meta">
+                    <span className="cinema">{campus.name} campus</span>
+                  </div>
+                </Link>
+              )}
               {/* <div className="description">
                 <p></p>
               </div> */}

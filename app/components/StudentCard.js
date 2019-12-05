@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-const StudentCard = ({
-  id,
-  imageUrl,
-  firstName,
-  lastName,
-  campus,
-  gpa,
-  email
-}) => {
+// campus null (not obj)
+// campusId null (not num)
+
+const StudentCard = props => {
+  const { id, imageUrl, firstName, lastName, gpa, email } = props;
+
+  const notEnrolled = 'Not currently enrolled';
+  const campus = props.campus || notEnrolled;
+
   return (
     <div className="custom-card">
       <div className="ui card">
@@ -20,16 +20,28 @@ const StudentCard = ({
           <Link to={`/students/${id}`}>
             <div className="header">{`${firstName} ${lastName}`}</div>
           </Link>
-          <div className="meta">
-            <Link to={`/campuses/${campus.id}`}>
-              {campus.name === '' ? (
-                <span className="cinema">Not currently enrolled</span>
-              ) : (
-                <span className="cinema">{campus.name} campus</span>
-              )}
-            </Link>
-          </div>
         </div>
+
+        <div className="extra content">
+          {campus === 'Not currently enrolled' ? (
+            <Fragment>
+              <span className="right floated">{notEnrolled}</span>
+              <span>
+                <i className="building icon"></i>
+                Campus
+              </span>
+            </Fragment>
+          ) : (
+            <Link to={`/campuses/${campus.id}`}>
+              <span className="right floated">{campus.name}</span>
+              <span>
+                <i className="building icon"></i>
+                Campus
+              </span>
+            </Link>
+          )}
+        </div>
+
         <div className="extra content">
           <span className="right floated">{gpa}</span>
           <span>

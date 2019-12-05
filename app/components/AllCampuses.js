@@ -1,7 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import CampusCard from './CampusCard';
 import { connect } from 'react-redux';
-import students from '../redux/students';
 
 const AllCampuses = ({ campuses, students }) => {
   return (

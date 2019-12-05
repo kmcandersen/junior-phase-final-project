@@ -1,10 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import StudentCard from './StudentCard';
 import { connect } from 'react-redux';
 
-const AllStudents = props => {
-  const students = props.students;
-
+const AllStudents = ({ students }) => {
   return (
     <div className="centered-parent">
       <div className="horiz-menu-row">

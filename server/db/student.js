@@ -30,7 +30,7 @@ const Student = db.define(
       defaultValue: 'https://robohash.org/default?set=set2'
     },
     gpa: {
-      type: Sequelize.DOUBLE,
+      type: Sequelize.FLOAT,
       validate: {
         min: 0.0,
         max: 4.0

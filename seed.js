@@ -17,6 +17,13 @@ const students = [
     gpa: 3.5
   },
   {
+    firstName: 'Victoria',
+    lastName: 'Von Doom',
+    email: 'vicky@gmail.com',
+    imageUrl: 'https://robohash.org/victoria?set=set2',
+    gpa: 3.6
+  },
+  {
     firstName: 'Todd',
     lastName: 'Hottentoff',
     email: 'todd@gmail.com',
@@ -41,6 +48,13 @@ const campuses = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jupiter%2C_image_taken_by_NASA%27s_Hubble_Space_Telescope%2C_June_2019_-_Edited.jpg/1280px-Jupiter%2C_image_taken_by_NASA%27s_Hubble_Space_Telescope%2C_June_2019_-_Edited.jpg'
   },
   {
+    name: 'Mars',
+    address: '1996 Mars St, Marsville',
+    description: 'some text here lorem ipsum',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1024px-OSIRIS_Mars_true_color.jpg'
+  },
+  {
     name: 'Pluto',
     address: '76 Pluto Rd, Plutopolis',
     description: 'some text here lorem ipsum',
@@ -52,12 +66,15 @@ const campuses = [
 const seed = async () => {
   try {
     await db.sync({ force: true });
-    const [penelope, helena, todd] = await Student.bulkCreate(students, {
-      returning: true,
-      validate: true
-    });
+    const [penelope, helena, victoria, todd] = await Student.bulkCreate(
+      students,
+      {
+        returning: true,
+        validate: true
+      }
+    );
 
-    const [earth, jupiter, pluto] = await Campus.bulkCreate(campuses, {
+    const [earth, jupiter, mars, pluto] = await Campus.bulkCreate(campuses, {
       returning: true,
       validate: true
     });
