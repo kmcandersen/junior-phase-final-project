@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+//
+const StudentCard = props => {
+  const imageUrl = props.imageUrl || '';
+  const firstName = props.firstName || '';
+  const lastName = props.lastName || '';
+  const campus = props.campus || {};
+  const gpa = props.gpa || 0.0;
+  const email = props.email || '';
 
-const StudentCard = ({ id, imageUrl, firstName, lastName, email, gpa }) => {
-  //   console.log('student card props', props);
   return (
-    <Link to={`/students/${id}`}>
+    <Link to={`/students/${props.id}`}>
       <div className="custom-card">
         <div className="ui card">
           <div className="image">
@@ -12,13 +18,9 @@ const StudentCard = ({ id, imageUrl, firstName, lastName, email, gpa }) => {
           </div>
           <div className="content">
             <div className="header">{`${firstName} ${lastName}`}</div>
-          </div>
-          <div className="extra content">
-            <span className="right floated">Saturn</span>
-            <span>
-              <i className="building icon"></i>
-              Campus
-            </span>
+            <div className="meta">
+              <span className="cinema">{campus.name} campus</span>
+            </div>
           </div>
           <div className="extra content">
             <span className="right floated">{gpa}</span>

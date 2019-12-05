@@ -12,14 +12,14 @@ class StudentProfile extends Component {
     }
   }
   render() {
-    console.log('SPROFILE props', this.props);
     const student = this.props.student;
+
     const imageUrl = student.imageUrl || '';
     const firstName = student.firstName || '';
     const lastName = student.lastName || '';
+    const campus = student.campus || {};
     const gpa = student.gpa || 0.0;
     const email = student.email || '';
-
     return (
       <div className="custom-list">
         <div className="ui divided items custom-items ">
@@ -30,7 +30,7 @@ class StudentProfile extends Component {
             <div className="content">
               <span className="header">{`${firstName} ${lastName}`}</span>
               <div className="meta">
-                <span className="cinema">Jupiter campus</span>
+                <span className="cinema">{campus.name} campus</span>
               </div>
               {/* <div className="description">
                 <p></p>

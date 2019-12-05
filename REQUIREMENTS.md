@@ -42,12 +42,12 @@ The requirements below are broken into separate **tiers**, which model the way w
 
 - [ ] React (AllCampuses): renders "No Campuses" if passed an empty array of campuses
 - [ ] React (AllStudents): renders "No Students" if passed an empty array of students
-- [x] Redux (campuses): returns the initial state by default
-- [x] Redux (students): returns the initial state by default
-- [x] Express: GET /api/students responds with all students
-- [x] Sequelize (Campus): requires name and address
-- [x] Sequelize (Student): email must be a valid email
-- [x] Navigation: navbar to navigate to home, campuses, students
+- [ ] Redux (campuses): returns the initial state by default
+- [ ] Redux (students): returns the initial state by default
+- [ ] Express: GET /api/students responds with all students
+- [ ] Sequelize (Campus): requires name and address
+- [ ] Sequelize (Student): email must be a valid email
+- [ ] Navigation: navbar to navigate to home, campuses, students
 - [ ] Seed file: creates exactly one campus that has no students
 - [ ] Seed file: creates exactly one student that is not enrolled in a campus
 
@@ -68,10 +68,10 @@ Congrats! You have completed your first vertical slice! Make sure to `commit -m 
 - [ ] Clicking on a campus from the all-campuses view should navigate to show that campus in the single-campus view
 
 - Write a component to display a single student with the following information:
-  - [ ] The student's full name, email, image, and gpa
+  - [x] The student's full name, email, image, and gpa
   - [ ] The name of their campus (or a helpful message if they don't have one)
-- [ ] Display the appropriate student when the url matches `/students/:studentId`
-- [ ] Clicking on a student from the all-students view should navigate to show that student in the single-student view
+- [x] Display the appropriate student when the url matches `/students/:studentId`
+- [x] Clicking on a student from the all-students view should navigate to show that student in the single-student view
 
 - [ ] Clicking on the name of a student in the single-campus view should navigate to show that student in the single-student view
 - [ ] Clicking on the name of a campus in the single-student view should navigate to show that campus in the single-campus view
