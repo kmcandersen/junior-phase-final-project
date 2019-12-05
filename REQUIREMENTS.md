@@ -32,22 +32,22 @@ The requirements below are broken into separate **tiers**, which model the way w
   - [x] email - not empty or null; must be a valid email
   - [x] imageUrl - with a default value
   - [x] gpa - decimal between 0.0 and 4.0
-- [ ] Students may be associated with at most one campus. Likewise, campuses may be associated with many students
+- [x] Students may be associated with at most one campus. Likewise, campuses may be associated with many students
 
 #### Seed
 
-- [ ] Running the seed file creates campuses and students for demonstration purposes
+- [x] Running the seed file creates campuses and students for demonstration purposes
 
 #### Testing
 
 - [ ] React (AllCampuses): renders "No Campuses" if passed an empty array of campuses
 - [ ] React (AllStudents): renders "No Students" if passed an empty array of students
-- [ ] Redux (campuses): returns the initial state by default
-- [ ] Redux (students): returns the initial state by default
-- [ ] Express: GET /api/students responds with all students
-- [ ] Sequelize (Campus): requires name and address
-- [ ] Sequelize (Student): email must be a valid email
-- [ ] Navigation: navbar to navigate to home, campuses, students
+- [x] Redux (campuses): returns the initial state by default
+- [x] Redux (students): returns the initial state by default
+- [x] Express: GET /api/students responds with all students
+- [x] Sequelize (Campus): requires name and address
+- [x] Sequelize (Student): email must be a valid email
+- [x] Navigation: navbar to navigate to home, campuses, students
 - [ ] Seed file: creates exactly one campus that has no students
 - [ ] Seed file: creates exactly one student that is not enrolled in a campus
 

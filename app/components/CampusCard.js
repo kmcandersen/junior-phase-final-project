@@ -16,7 +16,7 @@ const CampusCard = ({ id, name, address, description, imageUrl }) => {
           <div className="extra content">
             <span className="right floated">{address}</span>
             <span>
-              <i class="map marker alternate icon"></i>
+              <i className="map marker alternate icon"></i>
               Address
             </span>
           </div>
@@ -26,7 +26,7 @@ const CampusCard = ({ id, name, address, description, imageUrl }) => {
           </div>
           <div className="extra content">
             <span>
-              <i class="user icon"></i>
+              <i className="user icon"></i>
               53 Students
             </span>
           </div>
