@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CampusCard = ({ id, name, address, description, imageUrl }) => {
-  //console.log('campus card props', props);
   return (
     <Link to={`/campuses/${id}`}>
       <div className="custom-card">
@@ -13,6 +12,9 @@ const CampusCard = ({ id, name, address, description, imageUrl }) => {
           <div className="content">
             <div className="header">{name}</div>
           </div>
+          <div className="meta">
+            <span className="cinema">{description}</span>
+          </div>
           <div className="extra content">
             <span className="right floated">{address}</span>
             <span>
@@ -20,10 +22,10 @@ const CampusCard = ({ id, name, address, description, imageUrl }) => {
               Address
             </span>
           </div>
-          <div className="extra content">
-            {/* <span className="right floated">{description}</span> */}
+          {/* <div className="extra content">
+            <span className="right floated">{description}</span>
             <span>{description}</span>
-          </div>
+          </div> */}
           <div className="extra content">
             <span>
               <i className="user icon"></i>

@@ -15,7 +15,7 @@ export const fetchSingleStudent = id => {
       const { data } = await axios.get(`/api/students/${id}`);
       dispatch(setSingleStudent(data));
     } catch (err) {
-      console.log(err);
+      console.log('Err fetching student: ', err);
     }
   };
 };

@@ -11,7 +11,7 @@ import Home from './Home';
 import AllStudents from './AllStudents';
 import AllCampuses from './AllCampuses';
 import StudentProfile from './StudentProfile';
-// import CampusProfile from './CampusProfile';
+import CampusProfile from './CampusProfile';
 import { fetchStudents } from '../redux/students';
 import { fetchCampuses } from '../redux/campuses';
 
@@ -41,7 +41,7 @@ class Root extends Component {
             <Route exact path="/students" component={AllStudents} />
             <Route exact path="/campuses" component={AllCampuses} />
             <Route path="/students/:id" component={StudentProfile} />
-            {/* <Route path="/campuses/:campusId" component={CampusProfile} /> */}
+            <Route path="/campuses/:id" component={CampusProfile} />
           </Switch>
         </div>
       </Router>
