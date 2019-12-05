@@ -7,26 +7,24 @@ const AllStudents = props => {
 
   return (
     <div className="centered-parent">
-      <Fragment>
-        <div className="horiz-menu-row">
-          <div className="ui fluid two item menu">
-            <a className="item">All Students</a>
-            <a className="item">
-              Add A Student <i className="plus square icon"></i>
-            </a>
-          </div>
+      <div className="horiz-menu-row">
+        <div className="ui fluid two item menu">
+          <a className="item">All Students</a>
+          <a className="item">
+            Add A Student <i className="plus square icon"></i>
+          </a>
         </div>
+      </div>
 
-        <div className="custom-list custom-card-list ui link cards">
-          {students.map(student => {
-            return (
-              <div key={student.id}>
-                <StudentCard {...student} />
-              </div>
-            );
-          })}
-        </div>
-      </Fragment>
+      <div className="custom-list custom-card-list ui link cards">
+        {students.map(student => {
+          return (
+            <div key={student.id}>
+              <StudentCard {...student} />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

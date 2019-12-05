@@ -1,7 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CampusCard = ({ id, name, address, description, imageUrl }) => {
+const CampusCard = ({
+  id,
+  name,
+  address,
+  description,
+  imageUrl,
+  numStudents
+}) => {
+  const studentMessage = num => {
+    if (num > 1) {
+      return num + ' students';
+    } else if (num === 1) {
+      return num + ' student';
+    }
+    return 'No students enrolled';
+  };
+
   return (
     <Link to={`/campuses/${id}`}>
       <div className="custom-card">
@@ -29,7 +45,7 @@ const CampusCard = ({ id, name, address, description, imageUrl }) => {
           <div className="extra content">
             <span>
               <i className="user icon"></i>
-              53 Students
+              {studentMessage(numStudents)}
             </span>
           </div>
         </div>

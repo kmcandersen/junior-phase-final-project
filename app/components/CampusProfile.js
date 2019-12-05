@@ -19,6 +19,20 @@ class CampusProfile extends Component {
     const description = campus.description || '';
     const address = campus.address || '';
 
+    const students = this.props.students;
+    const filteredStudents = students.filter(
+      student => student.campusId === Number(this.props.match.params.id)
+    ).length;
+
+    const studentMessage = num => {
+      if (num > 1) {
+        return num + ' students';
+      } else if (num === 1) {
+        return num + ' student';
+      }
+      return 'No students enrolled';
+    };
+
     return (
       <div className="custom-list">
         <div className="ui divided items custom-items ">
@@ -46,7 +60,7 @@ class CampusProfile extends Component {
                 <span className="right floated"></span>
                 <span>
                   <i className="user icon"></i>
-                  74 students
+                  {studentMessage(filteredStudents)}
                 </span>
               </div>
               <div className="extra content">
@@ -66,7 +80,8 @@ class CampusProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    campus: state.singleCampus
+    campus: state.singleCampus,
+    students: state.students
   };
 };
 

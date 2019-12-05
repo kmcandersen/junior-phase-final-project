@@ -11,6 +11,7 @@ class StudentProfile extends Component {
       console.log(err);
     }
   }
+
   render() {
     const student = this.props.student;
 

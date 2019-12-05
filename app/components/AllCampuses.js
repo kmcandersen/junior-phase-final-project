@@ -1,37 +1,43 @@
 import React, { Fragment } from 'react';
 import CampusCard from './CampusCard';
 import { connect } from 'react-redux';
+import students from '../redux/students';
 
-const AllCampuses = props => {
-  const campuses = props.campuses;
-  // console.log('all campuses', props);
+const AllCampuses = ({ campuses, students }) => {
   return (
     <div className="centered-parent">
-      <Fragment>
-        <div className="horiz-menu-row">
-          <div className="ui fluid two item menu">
-            <a className="item">All Campuses</a>
-            <a className="item">Add A Campus</a>
-          </div>
+      <div className="horiz-menu-row">
+        <div className="ui fluid two item menu">
+          <a className="item">All Campuses</a>
+          <a className="item">
+            Add A Campus <i className="plus square icon"></i>
+          </a>
         </div>
+      </div>
 
-        <div className="custom-list custom-card-list ui link cards">
-          {campuses.map(campus => {
-            return (
-              <div key={campus.id}>
-                <CampusCard {...campus} />
-              </div>
-            );
-          })}
-        </div>
-      </Fragment>
+      <div className="custom-list custom-card-list ui link cards">
+        {campuses.map(campus => {
+          return (
+            <div key={campus.id}>
+              <CampusCard
+                {...campus}
+                numStudents={
+                  students.filter(student => student.campusId === campus.id)
+                    .length
+                }
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    campuses: state.campuses
+    campuses: state.campuses,
+    students: state.students
   };
 };
 
