@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const StudentCard = props => {
-  const imageUrl = props.imageUrl || '';
-  const firstName = props.firstName || '';
-  const lastName = props.lastName || '';
-  const campus = props.campus || {};
-  const gpa = props.gpa || 0.0;
-  const email = props.email || '';
-
+const StudentCard = ({
+  id,
+  imageUrl,
+  firstName,
+  lastName,
+  campus,
+  gpa,
+  email
+}) => {
   return (
     <div className="custom-card">
       <div className="ui card">
@@ -16,12 +17,16 @@ const StudentCard = props => {
           <img src={imageUrl}></img>
         </div>
         <div className="content">
-          <Link to={`/students/${props.id}`}>
+          <Link to={`/students/${id}`}>
             <div className="header">{`${firstName} ${lastName}`}</div>
           </Link>
           <div className="meta">
             <Link to={`/campuses/${campus.id}`}>
-              <span className="cinema">{campus.name} campus</span>
+              {campus.name === '' ? (
+                <span className="cinema">Not currently enrolled</span>
+              ) : (
+                <span className="cinema">{campus.name} campus</span>
+              )}
             </Link>
           </div>
         </div>

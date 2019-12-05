@@ -16,14 +16,18 @@ const AllStudents = props => {
         </div>
       </div>
 
-      <div className="custom-list custom-card-list ui link cards">
-        {students.map(student => {
-          return (
-            <div key={student.id}>
-              <StudentCard {...student} />
-            </div>
-          );
-        })}
+      <div className="custom-list custom-card-list ui cards">
+        {!students.length ? (
+          <p>NO STUDENTS ENROLLED</p>
+        ) : (
+          students.map(student => {
+            return (
+              <div key={student.id}>
+                <StudentCard {...student} />
+              </div>
+            );
+          })
+        )}
       </div>
     </div>
   );

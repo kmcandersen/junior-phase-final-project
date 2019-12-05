@@ -15,7 +15,7 @@ const AllCampuses = ({ campuses, students }) => {
         </div>
       </div>
 
-      <div className="custom-list custom-card-list ui link cards">
+      <div className="custom-list custom-card-list ui cards">
         {campuses.map(campus => {
           return (
             <div key={campus.id}>

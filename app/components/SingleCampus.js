@@ -17,8 +17,6 @@ class SingleCampus extends Component {
     const campus = this.props.campus;
 
     const students = this.props.students;
-
-    console.log('SingleCampus props', this.props);
     const filteredStudents = students.filter(
       student => student.campusId === Number(this.props.match.params.id)
     );
@@ -39,14 +37,19 @@ class SingleCampus extends Component {
           campusStudents={studentMessage(filteredStudents.length)}
         />
         <div className="ui divider"></div>
-        <div className="custom-list custom-card-list ui link cards">
-          {filteredStudents.map(student => {
-            return (
-              <div key={student.id}>
-                <StudentCard {...student} />
-              </div>
-            );
-          })}
+
+        <div className="custom-list custom-card-list ui cards">
+          {!filteredStudents.length ? (
+            <p>NO STUDENTS ENROLLED</p>
+          ) : (
+            filteredStudents.map(student => {
+              return (
+                <div key={student.id}>
+                  <StudentCard {...student} />
+                </div>
+              );
+            })
+          )}
         </div>
       </Fragment>
     );
