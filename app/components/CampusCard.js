@@ -19,38 +19,38 @@ const CampusCard = ({
   };
 
   return (
-    <Link to={`/campuses/${id}`}>
-      <div className="custom-card">
-        <div className="ui card">
-          <div className="image">
-            <img src={imageUrl}></img>
-          </div>
-          <div className="content">
+    <div className="custom-card">
+      <div className="ui card">
+        <div className="image">
+          <img src={imageUrl}></img>
+        </div>
+        <div className="content">
+          <Link to={`/campuses/${id}`}>
             <div className="header">{name}</div>
-          </div>
-          <div className="meta">
-            <span className="cinema">{description}</span>
-          </div>
-          <div className="extra content">
-            <span className="right floated">{address}</span>
-            <span>
-              <i className="map marker alternate icon"></i>
-              Address
-            </span>
-          </div>
-          {/* <div className="extra content">
+          </Link>
+        </div>
+        <div className="meta">
+          <span className="cinema">{description}</span>
+        </div>
+        <div className="extra content">
+          <span className="right floated">{address}</span>
+          <span>
+            <i className="map marker alternate icon"></i>
+            Address
+          </span>
+        </div>
+        {/* <div className="extra content">
             <span className="right floated">{description}</span>
             <span>{description}</span>
           </div> */}
-          <div className="extra content">
-            <span>
-              <i className="user icon"></i>
-              {studentMessage(numStudents)}
-            </span>
-          </div>
+        <div className="extra content">
+          <span>
+            <i className="user icon"></i>
+            {studentMessage(numStudents)}
+          </span>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchSingleStudent } from '../redux/singleStudent';
 
 class StudentProfile extends Component {
@@ -30,9 +31,12 @@ class StudentProfile extends Component {
             </div>
             <div className="content">
               <span className="header">{`${firstName} ${lastName}`}</span>
-              <div className="meta">
-                <span className="cinema">{campus.name} campus</span>
-              </div>
+
+              <Link to={`/campuses/${campus.id}`}>
+                <div className="meta">
+                  <span className="cinema">{campus.name} campus</span>
+                </div>
+              </Link>
               {/* <div className="description">
                 <p></p>
               </div> */}
