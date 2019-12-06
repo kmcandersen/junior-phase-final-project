@@ -29,37 +29,69 @@ class AddStudentForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          name="firstName"
-          placeholder="First Name"
-          value={this.state.firstName}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="lastName"
-          placeholder="Last Name"
-          value={this.state.lastName}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="gpa"
-          placeholder="GPA"
-          value={this.state.gpa}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="email"
-          placeholder="email"
-          value={this.state.email}
-          onChange={this.handleChange}
-        />
-        <button type="submit">Add Student</button>
-      </form>
+      <div className="centered-parent">
+        <div className="ui segment form-segment">
+          <form className="ui form" onSubmit={this.handleSubmit}>
+            <div className="two fields">
+              <div className="field">
+                <label>First Name</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="e.g., Helena"
+                  value={this.state.firstName}
+                  onChange={this.state.handleChange}
+                />
+              </div>
+              <div className="field">
+                <label>Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Handbasket"
+                  value={this.state.lastName}
+                  onChange={this.state.handleChange}
+                />
+              </div>
+            </div>
+            <div className="fields">
+              <div className="two wide field">
+                <label>GPA</label>
+                <input
+                  type="text"
+                  name="gpa"
+                  placeholder="4.0"
+                  value={this.state.gpa}
+                  onChange={this.state.handleChange}
+                />
+              </div>
+              <div className="seven wide field">
+                <label>Email</label>
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="helenahandbasket@gmail.com"
+                  value={this.state.email}
+                  onChange={this.state.handleChange}
+                />
+              </div>
+              <div className="seven wide field">
+                <label>Campus</label>
+                <input
+                  type="text"
+                  name="campus"
+                  placeholder="Pluto"
+                  value={this.state.campus}
+                  onChange={this.state.handleChange}
+                />
+              </div>
+            </div>
+            <button className="ui button" type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
     );
   }
 }

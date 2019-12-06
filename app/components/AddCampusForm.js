@@ -8,8 +8,8 @@ class AddCampusForm extends Component {
     super();
     this.state = {
       name: '',
-      description: '',
-      address: ''
+      address: '',
+      description: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,35 +22,52 @@ class AddCampusForm extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.addCampus(this.state);
-    this.setState({ name: '', description: '', address: '' });
+    this.setState({ name: '', address: '', description: '' });
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={this.state.firstName}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="description"
-          placeholder="Description"
-          value={this.state.description}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="address"
-          placeholder="Address"
-          value={this.state.address}
-          onChange={this.handleChange}
-        />
-        <button type="submit">Add Campus</button>
-      </form>
+      <div className="centered-parent">
+        <div className="ui segment form-segment">
+          <form className="ui form" onSubmit={this.handleSubmit}>
+            <div className="two fields">
+              <div className="field">
+                <label>Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="e.g., Pluto"
+                  value={this.state.firstName}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="field">
+                <label>Address</label>
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="123 Pluto Rd, Pluto"
+                  value={this.state.address}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <div className="field">
+              <label>Description</label>
+              <input
+                type="text"
+                name="description"
+                placeholder="Small but mighty"
+                value={this.state.description}
+                onChange={this.handleChange}
+              />
+            </div>
+            <button className="ui button" type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
     );
   }
 }

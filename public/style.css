@@ -151,3 +151,7 @@
 #remove-robot:hover {
   color: #456b8a;
 }
+
+.form-segment {
+  width: 80vw;
+}
