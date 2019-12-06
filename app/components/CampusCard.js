@@ -33,10 +33,10 @@ const CampusCard = ({
           <span className="cinema">{description}</span>
         </div>
         <div className="extra content">
-          <span className="right floated">{address}</span>
+          {/* <span className="right floated">{address}</span> */}
           <span>
             <i className="map marker alternate icon"></i>
-            Address
+            {address}
           </span>
         </div>
         {/* <div className="extra content">

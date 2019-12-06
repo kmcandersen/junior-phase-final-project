@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const StudentCard = props => {
   const { id, imageUrl, firstName, lastName, gpa, email } = props;
 
-  const notEnrolled = 'Not currently enrolled';
+  const notEnrolled = 'Not enrolled';
   const campus = props.campus || notEnrolled;
 
   return (
@@ -23,7 +23,7 @@ const StudentCard = props => {
         </div>
 
         <div className="extra content">
-          {campus === 'Not currently enrolled' ? (
+          {campus === 'Not enrolled' ? (
             <Fragment>
               <span className="right floated">{notEnrolled}</span>
               <span>
@@ -50,10 +50,9 @@ const StudentCard = props => {
           </span>
         </div>
         <div className="extra content">
-          <span className="right floated">{email}</span>
           <span>
             <i className="envelope icon"></i>
-            Email
+            {email}
           </span>
         </div>
       </div>

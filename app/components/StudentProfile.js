@@ -31,7 +31,7 @@ class StudentProfile extends Component {
     const gpa = student.gpa || 0.0;
     const email = student.email || '';
 
-    const notEnrolled = 'Not currently enrolled';
+    const notEnrolled = 'Not enrolled';
     const campus = this.props.student.campus || notEnrolled;
 
     return (
@@ -44,7 +44,7 @@ class StudentProfile extends Component {
             <div className="content">
               <span className="header">{`${firstName} ${lastName}`}</span>
 
-              {campus === 'Not currently enrolled' ? (
+              {campus === 'Not enrolled' ? (
                 <div className="meta">
                   <span className="cinema">{notEnrolled}</span>
                 </div>

@@ -5,29 +5,149 @@
 
 * {
   box-sizing: border-box;
-  font-family: arial, sans-serif;
 }
 
-body {
-  background: linear-gradient(#ffffff, #c0c0c0);
-  height: 100vh;
+.root {
+  background: linear-gradient(110deg, #e7e7e7 60%, #dfdfdf 60%);
+  width: 100vw;
+  /* background: linear-gradient(#ffffff, #c0c0c0); */
+  /* height: 100vh;
   padding: 0;
   margin: 0;
-  width: 100vw;
+  width: 100vw; */
 }
 
-nav {
+/* nav {
   align-items: center;
   background-color: #333333;
   color: #c0c0c0;
   display: flex;
   height: 80px;
   padding: 10px;
+} */
+
+.root-nav {
+  background-color: black;
+  font-family: arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  width: 100%;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: space-around;
 }
 
-main {
+.root-nav a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.5s ease;
+  margin: 1.5rem;
+}
+
+.root-nav a.active-link {
+  color: red;
+}
+
+/* AllRobots */
+.centered-parent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.custom-card-list {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 0 10px;
+  grid-auto-rows: 10px; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80vw;
+}
+
+.custom-card {
+  max-width: 200px;
+  flex: 1 0 33%;
+  margin: 1rem;
+}
+
+.card {
+  font-size: 0.85rem;
+}
+
+/* SingleRobot profile */
+.custom-items {
+  /* font-size: 1.1rem; */
+  /* margin: 40px; */
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem;
+}
+
+.custom-item {
+  flex: 0 0 40%;
+}
+
+.horiz-menu-row {
+  margin: 2.5rem;
+  width: 40%;
+}
+
+.ui.button,
+.ui.button:focus {
+  background-color: #98adbe;
+}
+
+.ui.button:hover {
+  background-color: #839cb1;
+}
+
+/* .content {
+  margin: 0;
+} */
+
+/* main {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+} */
+
+/* .card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 0 10px;
+  grid-auto-rows: 10px;
+}
+
+.card-list img {
+  width: 250px;
+} */
+
+.ui.divider.div-sm {
+  margin: 5px 0 0 0;
+}
+
+.custom-image {
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  /* padding-bottom: 5rem; */
+}
+
+.ui.items > .item > .custom-image > img {
+  height: 100%;
+}
+
+.ui.items > .item .meta {
+  margin-bottom: 1.2em;
+}
+
+#remove-robot {
+  color: #6e8ca4;
+  font-size: 1.1em;
+}
+
+#remove-robot:hover {
+  color: #456b8a;
 }

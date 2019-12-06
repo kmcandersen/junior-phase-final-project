@@ -21,4 +21,18 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+// POST api/students
+router.post('/', async (req, res, next) => {
+  try {
+    const { firstName, lastName, email, gpa } = req.body;
+    const imageUrl = `https://robohash.org/${firstName}?set=set2`;
+    res.status(201);
+    res.json(
+      await Student.create({ firstName, lastName, email, gpa, imageUrl })
+    );
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;
