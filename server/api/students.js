@@ -35,4 +35,26 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+router.put('/:id/update', async (req, res, next) => {
+  try {
+    const { firstName, lastName, gpa, email } = req.body;
+    const updatedStudent = await Student.update(
+      {
+        firstName,
+        lastName,
+        gpa,
+        email
+      },
+      {
+        where: { id: req.params.id },
+        returning: true,
+        plain: true
+      }
+    );
+    res.json(updatedStudent);
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

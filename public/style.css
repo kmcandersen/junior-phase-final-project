@@ -68,8 +68,8 @@
 }
 
 .custom-card {
-  max-width: 200px;
-  flex: 1 0 33%;
+  width: 200px;
+  /* flex: 1 0 33%; */
   margin: 1rem;
 }
 

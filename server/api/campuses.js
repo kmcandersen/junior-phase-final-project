@@ -11,6 +11,17 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+// POST api/campuses
+router.post('/', async (req, res, next) => {
+  try {
+    const { name, description, address } = req.body;
+    res.status(201);
+    res.json(await Campus.create({ name, description, address }));
+  } catch (err) {
+    next(err);
+  }
+});
+
 // GET api/campuses/:id
 router.get('/:id', async (req, res, next) => {
   try {

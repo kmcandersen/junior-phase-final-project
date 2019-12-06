@@ -1,11 +1,19 @@
 import axios from 'axios';
 
 const SET_CAMPUSES = 'SET_CAMPUSES';
+const ADD_CAMPUS = 'ADD_CAMPUS';
 
 export const setCampuses = campuses => {
   return {
     type: SET_CAMPUSES,
     campuses
+  };
+};
+
+export const addCampus = campus => {
+  return {
+    type: ADD_CAMPUS,
+    campus
   };
 };
 
@@ -20,13 +28,25 @@ export const fetchCampuses = () => {
   };
 };
 
-const initialState = [];
+export const postCampus = campus => {
+  return async dispatch => {
+    try {
+      const response = await axios.post('/api/campuses', campus);
+      const newCampus = response.data;
+      dispatch(addCampus(newCampus));
+    } catch (err) {
+      console.log('Err adding campus: ', err);
+    }
+  };
+};
 
-export default (state = initialState, action) => {
+export default (campuses = [], action) => {
   switch (action.type) {
     case SET_CAMPUSES:
       return action.campuses;
+    case ADD_CAMPUS:
+      return [...campuses, action.campus];
     default:
-      return state;
+      return campuses;
   }
 };

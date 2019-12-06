@@ -13,6 +13,8 @@ import AllCampuses from './AllCampuses';
 import StudentProfile from './StudentProfile';
 import SingleCampus from './SingleCampus';
 import AddStudentForm from './AddStudentForm';
+import AddCampusForm from './AddCampusForm';
+import UpdateStudent from './UpdateStudent';
 import { fetchStudents } from '../redux/students';
 import { fetchCampuses } from '../redux/campuses';
 
@@ -41,8 +43,10 @@ class Root extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/students" component={AllStudents} />
             <Route path="/students/add" component={AddStudentForm} />
+            <Route path="/campuses/add" component={AddCampusForm} />
             <Route exact path="/campuses" component={AllCampuses} />
-            <Route path="/students/:id" component={StudentProfile} />
+            <Route exact path="/students/:id" component={StudentProfile} />
+            <Route path="/students/:id/update" component={UpdateStudent} />
             <Route path="/campuses/:id" component={SingleCampus} />
           </Switch>
         </div>

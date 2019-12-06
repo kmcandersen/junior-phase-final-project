@@ -33,7 +33,6 @@ export const postStudent = student => {
     try {
       const response = await axios.post('/api/students', student);
       const newStudent = response.data;
-      console.log('INSIDE POSTSTUDENT THUNK CREATOR');
       dispatch(addStudent(newStudent));
     } catch (err) {
       console.log('Err adding student: ', err);
@@ -41,17 +40,13 @@ export const postStudent = student => {
   };
 };
 
-const initialState = [];
-
-export default (state = initialState, action) => {
+export default (students = [], action) => {
   switch (action.type) {
     case SET_STUDENTS:
       return action.students;
     case ADD_STUDENT:
-      return {
-        students: [...state.students, action.student]
-      };
+      return [...students, action.student];
     default:
-      return state;
+      return students;
   }
 };
