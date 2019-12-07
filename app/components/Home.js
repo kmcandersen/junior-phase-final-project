@@ -23,13 +23,6 @@ const Home = ({ students, campuses }) => {
           </div>
           <div className="label stat-label">Campuses</div>
         </div>
-        <div className="statistic">
-          <div className="value">
-            <i className="rocket icon"></i>
-            <span className="stat-num">8</span>
-          </div>
-          <div className="label stat-label">Planets</div>
-        </div>
       </div>
     </div>
   );
