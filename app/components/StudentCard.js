@@ -55,6 +55,14 @@ const StudentCard = props => {
             {email}
           </span>
         </div>
+        <div className="extra content">
+          <span className="right floated">
+            <button type="submit" className="ui label delete-button">
+              <i className="minus square icon"></i>
+              Delete
+            </button>
+          </span>
+        </div>
       </div>
     </div>
   );
