@@ -29,7 +29,7 @@ class AddStudentForm extends Component {
   render() {
     return (
       <div className="centered-parent">
-        <div className="ui segment form-segment">
+        <div className="ui segment" id="form-segment-addS">
           <form className="ui form" onSubmit={this.handleSubmit}>
             <div className="two fields">
               <div className="field">

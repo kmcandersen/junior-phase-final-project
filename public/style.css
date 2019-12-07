@@ -162,8 +162,11 @@
   color: #456b8a;
 } */
 
-.form-segment {
+/* req id to change semantic-ui styling */
+#form-segment-addC,
+#form-segment-addS {
   width: 80vw;
+  margin-top: 3rem;
 }
 
 /* Card titles */

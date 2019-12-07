@@ -1,21 +1,32 @@
 import React from 'react';
 import StudentCard from './StudentCard';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const AllStudents = ({ students }) => {
   return (
-    <div className="custom-list custom-card-list ui cards">
-      {!students.length ? (
-        <p>NO STUDENTS ENROLLED</p>
-      ) : (
-        students.map(student => {
-          return (
-            <div key={student.id}>
-              <StudentCard {...student} />
-            </div>
-          );
-        })
-      )}
+    <div className="centered-parent">
+      <div className="horiz-menu-row">
+        <button type="submit" className="ui basic button add-button">
+          <Link to="/students/add">
+            Add A Student
+            <i className="plus square icon icon-padding"></i>
+          </Link>
+        </button>
+      </div>
+      <div className="custom-list custom-card-list ui cards">
+        {!students.length ? (
+          <p>NO STUDENTS ENROLLED</p>
+        ) : (
+          students.map(student => {
+            return (
+              <div key={student.id}>
+                <StudentCard {...student} />
+              </div>
+            );
+          })
+        )}
+      </div>
     </div>
   );
 };
