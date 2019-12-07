@@ -1,15 +1,46 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Home = () => {
+const Home = ({ students, campuses }) => {
   return (
-    <div>
-      <nav>Welcome!</nav>
+    <div className="centered-parent">
       <main>
-        <h1>Welcome to the Margaret Hamilton Academy of JavaScript!</h1>
-        <p>This seems like a nice place to get started with some Routes!</p>
+        <h2>Margaret Hamilton</h2>
+        <h1>Academy of JavaScript</h1>
       </main>
+      <div className="ui statistics">
+        <div className="statistic">
+          <div className="value">
+            <i className="user icon"></i>
+            <span className="stat-num">{students.length}</span>
+          </div>
+          <div className="label stat-label">Students</div>
+        </div>
+        <div className="statistic">
+          <div className="value">
+            <i className="building icon"></i>
+            <span className="stat-num">{campuses.length}</span>
+          </div>
+          <div className="label stat-label">Campuses</div>
+        </div>
+        <div className="statistic">
+          <div className="value">
+            <i className="rocket icon"></i>
+            <span className="stat-num">8</span>
+          </div>
+          <div className="label stat-label">Planets</div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Home;
+const mapStateToProps = state => {
+  return {
+    campuses: state.campuses,
+    students: state.students
+    // planets: state.planets
+  };
+};
+
+export default connect(mapStateToProps)(Home);

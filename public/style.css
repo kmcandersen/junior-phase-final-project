@@ -10,6 +10,7 @@
 .root {
   background: linear-gradient(110deg, #e7e7e7 60%, #dfdfdf 60%);
   width: 100vw;
+  height: 100vh;
   /* background: linear-gradient(#ffffff, #c0c0c0); */
   /* height: 100vh;
   padding: 0;
@@ -28,13 +29,13 @@
 
 .root-nav {
   background-color: black;
-  font-family: arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.25rem;
   width: 100%;
   padding: 0.8rem;
   display: flex;
   justify-content: space-around;
+  border-bottom: 2px solid #d4d4d5;
 }
 
 .root-nav a {
@@ -44,11 +45,11 @@
   margin: 1.5rem;
 }
 
-.root-nav a.active-link {
-  color: red;
+.root-nav a.active-main-link {
+  border-bottom: 5px solid red;
 }
 
-/* AllRobots */
+/* AllStudents */
 .centered-parent {
   display: flex;
   align-items: center;
@@ -77,7 +78,7 @@
   font-size: 0.85rem;
 }
 
-/* SingleRobot profile */
+/* SingleStudent profile */
 .custom-items {
   /* font-size: 1.1rem; */
   /* margin: 40px; */
@@ -91,25 +92,34 @@
 }
 
 .horiz-menu-row {
+  display: flex;
+  justify-content: space-around;
+  /* border: 1px solid red; */
   margin: 2.5rem;
   width: 40%;
 }
 
-.ui.button,
+.hello-active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.two-item-menu-item a {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+/* .ui.button,
 .ui.button:focus {
   background-color: #98adbe;
 }
 
 .ui.button:hover {
   background-color: #839cb1;
-}
+} */
 
 /* .content {
   margin: 0;
 } */
 
 /* main {
-  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,15 +153,49 @@
   margin-bottom: 1.2em;
 }
 
-#remove-robot {
+/* #remove-robot {
   color: #6e8ca4;
   font-size: 1.1em;
 }
 
 #remove-robot:hover {
   color: #456b8a;
-}
+} */
 
 .form-segment {
   width: 80vw;
+}
+
+/* Card titles */
+.header {
+  color: red;
+  font-size: 1.1rem;
+}
+.header:hover {
+  font-size: 1.15rem;
+}
+
+/* Home page */
+main {
+  text-align: center;
+  width: 80vw;
+  padding: 2.5rem;
+}
+
+.ui.statistics .statistic > .label {
+  text-transform: lowercase;
+  letter-spacing: 5px;
+  padding-top: 5px;
+}
+
+.stat-num {
+  padding-left: 10px;
+}
+
+/* Add/plus button */
+.add-button a {
+  color: #6a6969;
+}
+.icon-padding {
+  padding-left: 0.5em;
 }

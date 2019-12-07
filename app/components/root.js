@@ -8,11 +8,10 @@ import {
 import { connect } from 'react-redux';
 
 import Home from './Home';
-import AllStudents from './AllStudents';
+import StudentsNav from './StudentsNav';
 import AllCampuses from './AllCampuses';
 import StudentProfile from './StudentProfile';
 import SingleCampus from './SingleCampus';
-import AddStudentForm from './AddStudentForm';
 import AddCampusForm from './AddCampusForm';
 import UpdateStudent from './UpdateStudent';
 import { fetchStudents } from '../redux/students';
@@ -24,30 +23,34 @@ class Root extends Component {
     this.props.loadStudents();
     this.props.loadCampuses();
   }
+
   render() {
     return (
       <Router>
         <div className="root">
           <nav className="root-nav">
-            <NavLink exact activeClassName="active-link" to="/">
+            <NavLink exact activeClassName="active-main-link" to="/">
               Home
             </NavLink>
-            <NavLink exact activeClassName="active-link" to="/students">
+            <NavLink exact activeClassName="active-main-link" to="/students">
               Students
             </NavLink>
-            <NavLink exact activeClassName="active-link" to="/campuses">
+            <NavLink exact activeClassName="active-main-link" to="/campuses">
               Campuses
             </NavLink>
           </nav>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/students" component={AllStudents} />
-            <Route path="/students/add" component={AddStudentForm} />
-            <Route path="/campuses/add" component={AddCampusForm} />
+            <Route exact path="/students" component={StudentsNav} />
+            <Route exact path="/campuses/add" component={AddCampusForm} />
             <Route exact path="/campuses" component={AllCampuses} />
             <Route exact path="/students/:id" component={StudentProfile} />
-            <Route path="/students/:id/update" component={UpdateStudent} />
-            <Route path="/campuses/:id" component={SingleCampus} />
+            <Route
+              exact
+              path="/students/:id/update"
+              component={UpdateStudent}
+            />
+            <Route exact path="/campuses/:id" component={SingleCampus} />
           </Switch>
         </div>
       </Router>

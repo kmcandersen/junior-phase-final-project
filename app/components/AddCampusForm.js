@@ -37,7 +37,7 @@ class AddCampusForm extends Component {
                   type="text"
                   name="name"
                   placeholder="e.g., Pluto"
-                  value={this.state.firstName}
+                  value={this.state.name}
                   onChange={this.handleChange}
                 />
               </div>

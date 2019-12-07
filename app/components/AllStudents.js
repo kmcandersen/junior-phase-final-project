@@ -4,29 +4,18 @@ import { connect } from 'react-redux';
 
 const AllStudents = ({ students }) => {
   return (
-    <div className="centered-parent">
-      <div className="horiz-menu-row">
-        <div className="ui fluid two item menu">
-          <a className="item">All Students</a>
-          <a className="item">
-            Add A Student <i className="plus square icon"></i>
-          </a>
-        </div>
-      </div>
-
-      <div className="custom-list custom-card-list ui cards">
-        {!students.length ? (
-          <p>NO STUDENTS ENROLLED</p>
-        ) : (
-          students.map(student => {
-            return (
-              <div key={student.id}>
-                <StudentCard {...student} />
-              </div>
-            );
-          })
-        )}
-      </div>
+    <div className="custom-list custom-card-list ui cards">
+      {!students.length ? (
+        <p>NO STUDENTS ENROLLED</p>
+      ) : (
+        students.map(student => {
+          return (
+            <div key={student.id}>
+              <StudentCard {...student} />
+            </div>
+          );
+        })
+      )}
     </div>
   );
 };

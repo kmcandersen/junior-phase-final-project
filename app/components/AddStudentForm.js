@@ -16,7 +16,6 @@ class AddStudentForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(evt) {
-    console.log('ChangeETV', evt.target.name, evt.target.value);
     this.setState({
       [evt.target.name]: evt.target.value
     });
@@ -40,7 +39,7 @@ class AddStudentForm extends Component {
                   name="firstName"
                   placeholder="e.g., Helena"
                   value={this.state.firstName}
-                  onChange={this.state.handleChange}
+                  onChange={this.handleChange}
                 />
               </div>
               <div className="field">
@@ -50,7 +49,7 @@ class AddStudentForm extends Component {
                   name="lastName"
                   placeholder="Handbasket"
                   value={this.state.lastName}
-                  onChange={this.state.handleChange}
+                  onChange={this.handleChange}
                 />
               </div>
             </div>
@@ -62,7 +61,7 @@ class AddStudentForm extends Component {
                   name="gpa"
                   placeholder="4.0"
                   value={this.state.gpa}
-                  onChange={this.state.handleChange}
+                  onChange={this.handleChange}
                 />
               </div>
               <div className="seven wide field">
@@ -72,19 +71,19 @@ class AddStudentForm extends Component {
                   name="email"
                   placeholder="helenahandbasket@gmail.com"
                   value={this.state.email}
-                  onChange={this.state.handleChange}
+                  onChange={this.handleChange}
                 />
               </div>
-              <div className="seven wide field">
+              {/* <div className="seven wide field">
                 <label>Campus</label>
                 <input
                   type="text"
                   name="campus"
                   placeholder="Pluto"
                   value={this.state.campus}
-                  onChange={this.state.handleChange}
+                  onChange={this.handleChange}
                 />
-              </div>
+              </div> */}
             </div>
             <button className="ui button" type="submit">
               Submit
