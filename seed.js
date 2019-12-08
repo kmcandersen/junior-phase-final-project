@@ -10,11 +10,25 @@ const students = [
     gpa: 3.2
   },
   {
-    firstName: 'Helena',
+    firstName: 'Hortensia',
     lastName: 'Horstein',
-    email: 'helena@gmail.com',
-    imageUrl: 'https://robohash.org/helena?set=set2',
+    email: 'hortensia@gmail.com',
+    imageUrl: 'https://robohash.org/hortensia?set=set2',
     gpa: 3.5
+  },
+  {
+    firstName: 'Titus',
+    lastName: 'Andromedon',
+    email: 'titus@gmail.com',
+    imageUrl: 'https://robohash.org/titus?set=set2',
+    gpa: 3.1
+  },
+  {
+    firstName: 'Aaron',
+    lastName: 'Pocalypse',
+    email: 'aaron@gmail.com',
+    imageUrl: 'https://robohash.org/aaron?set=set2',
+    gpa: 3.1
   },
   {
     firstName: 'Victoria',
@@ -22,6 +36,20 @@ const students = [
     email: 'vicky@gmail.com',
     imageUrl: 'https://robohash.org/victoria?set=set2',
     gpa: 3.6
+  },
+  {
+    firstName: 'Terror',
+    lastName: 'Byte',
+    email: 'towerofterror@gmail.com',
+    imageUrl: 'https://robohash.org/terror?set=set2',
+    gpa: 2.9
+  },
+  {
+    firstName: 'T-Rex',
+    lastName: 'Magoo',
+    email: 'trex@gmail.com',
+    imageUrl: 'https://robohash.org/trex?set=set2',
+    gpa: 3.3
   },
   {
     firstName: 'Todd',
@@ -36,28 +64,28 @@ const campuses = [
   {
     name: 'Earth',
     address: '1 Earth Way, Chicago',
-    description: 'some text here lorem ipsum',
+    description: 'Highest % of human students',
     imageUrl:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg'
   },
   {
     name: 'Jupiter',
     address: '12 Jupiter Ave, Jupiter City',
-    description: 'some text here lorem ipsum',
+    description: '79 moons (that we know of)',
     imageUrl:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jupiter%2C_image_taken_by_NASA%27s_Hubble_Space_Telescope%2C_June_2019_-_Edited.jpg/1280px-Jupiter%2C_image_taken_by_NASA%27s_Hubble_Space_Telescope%2C_June_2019_-_Edited.jpg'
   },
   {
     name: 'Mars',
     address: '1996 Mars St, Marsville',
-    description: 'some text here lorem ipsum',
+    description: 'Best coders on the reddest planet',
     imageUrl:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1024px-OSIRIS_Mars_true_color.jpg'
   },
   {
     name: 'Pluto',
     address: '76 Pluto Rd, Plutopolis',
-    description: 'some text here lorem ipsum',
+    description: 'Small but mighty',
     imageUrl:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Pluto_in_True_Color_-_High-Res.jpg/1280px-Pluto_in_True_Color_-_High-Res.jpg'
   }
@@ -66,13 +94,19 @@ const campuses = [
 const seed = async () => {
   try {
     await db.sync({ force: true });
-    const [penelope, helena, victoria, todd] = await Student.bulkCreate(
-      students,
-      {
-        returning: true,
-        validate: true
-      }
-    );
+    const [
+      penelope,
+      helena,
+      titus,
+      aaron,
+      victoria,
+      terror,
+      trex,
+      todd
+    ] = await Student.bulkCreate(students, {
+      returning: true,
+      validate: true
+    });
 
     const [earth, jupiter, mars, pluto] = await Campus.bulkCreate(campuses, {
       returning: true,
@@ -81,8 +115,12 @@ const seed = async () => {
     //**model must exist (above) before assn can be set up */
     await Promise.all([
       earth.addStudents(penelope),
+      earth.addStudents(victoria),
+      earth.addStudents(trex),
       jupiter.addStudents(helena),
-      pluto.addStudents(todd)
+      jupiter.addStudents(aaron),
+      pluto.addStudents(todd),
+      pluto.addStudents(titus)
     ]);
     // seed your database here!
   } catch (err) {

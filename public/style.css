@@ -78,6 +78,11 @@
   font-size: 0.85rem;
 }
 
+#card-desc {
+  padding-left: 1em;
+  font-size: 1.1em;
+}
+
 /* SingleStudent profile */
 .custom-items {
   /* font-size: 1.1rem; */
@@ -88,7 +93,7 @@
 }
 
 .custom-item {
-  flex: 0 0 40%;
+  flex: 0 0 50%;
 }
 
 .horiz-menu-row {

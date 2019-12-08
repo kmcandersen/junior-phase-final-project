@@ -64,7 +64,7 @@ router.delete('/:id/', async (req, res, next) => {
         id: req.params.id
       }
     });
-    res.status(204).end();
+    res.send(req.params.id);
   } catch (err) {
     next(err);
   }

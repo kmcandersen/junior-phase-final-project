@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchSingleStudent } from '../redux/singleStudent';
+import UpdateStudent from './UpdateStudent';
 
 class StudentProfile extends Component {
   componentDidMount() {
@@ -67,22 +68,19 @@ class StudentProfile extends Component {
               </div>
               <div className="ui divider div-sm"></div>
               <div className="extra content">
-                <span className="right floated">{email}</span>
                 <span>
                   <i className="envelope icon"></i>
                   Email
+                  <span className="right floated">{email}</span>
                 </span>
-              </div>
-              <div className="extra content">
-                <button type="submit" className="ui button">
-                  Update
-                </button>
               </div>
             </div>
           </div>
         </div>
-        {/* separates student profile from campus cards */}
-        <div className="ui divider">{/* campus cards here */}</div>
+
+        <div className="ui divider">
+          <UpdateStudent studentId={student.id} />
+        </div>
       </div>
     );
   }

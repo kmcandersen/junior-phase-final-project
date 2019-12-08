@@ -30,7 +30,7 @@ const CampusCard = ({
           </Link>
         </div>
         <div className="meta">
-          <span className="cinema">{description}</span>
+          <span id="card-desc">{description}</span>
         </div>
         <div className="extra content">
           {/* <span className="right floated">{address}</span> */}

@@ -7,13 +7,31 @@ class UpdateStudent extends Component {
   constructor() {
     super();
     this.state = {
+      id: '',
       firstName: '',
       lastName: '',
       gpa: '',
-      email: ''
+      email: '',
+      campus: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    try {
+      const id = Number(this.props.match.params.id);
+
+      this.props.loadSingleStudent(id);
+      //   this.setState({
+      //     firstName: this.props.singleStudent.firstName,
+      //     lastName: this.props.singleStudent.lastName,
+      //     gpa: this.props.singleStudent.gpa,
+      //     email: this.props.singleStudent.email
+      //   });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   handleChange(evt) {
@@ -25,10 +43,7 @@ class UpdateStudent extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    //console.log('PROPS INSIDE SUBMIT', this.props);
-    const id = this.props.id;
-    //console.log('INSIDE SUBMIT ID & STATE', id, this.state);
-    // const id = Number(this.props.match.params.id);
+    const id = Number(this.props.match.params.id);
     this.props.updateStudent(id, this.state);
     //console.log('State after HSubmit', this.state);
     this.setState({
@@ -37,12 +52,13 @@ class UpdateStudent extends Component {
       gpa: '',
       email: ''
     });
+    //display confirm message
 
     //or student.id from props?
   }
 
   render() {
-    const { singleStudent } = this.props;
+    //const { singleStudent } = this.props;
     //console.log('UPDATE PROPS', singleStudent);
     return (
       <UpdateStudentForm
