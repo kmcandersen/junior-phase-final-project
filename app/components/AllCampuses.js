@@ -3,14 +3,17 @@ import CampusCard from './CampusCard';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const AllCampuses = ({ campuses, students }) => {
+const AllCampuses = props => {
+  const campuses = props.campuses.campuses;
+  const students = props.students.students;
+  // console.log('ALLCAMPUSES students', students);
   return (
     <div className="centered-parent">
       <div className="horiz-menu-row">
         <button type="submit" className="ui basic button add-button">
           <Link to="/campuses/add">
             Add A Campus
-            <i className="plus square icon icon-padding"></i>
+            <i className="plus square icon icon-padding" />
           </Link>
         </button>
       </div>

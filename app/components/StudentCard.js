@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeStudent } from '../redux/singleStudent';
+import { removeStudent } from '../redux/students';
 
 // campus null (not obj)
 // campusId null (not num)

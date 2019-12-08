@@ -30,7 +30,7 @@ class AddCampusForm extends Component {
       <div className="centered-parent">
         <div className="ui segment" id="form-segment-addC">
           <form className="ui form" onSubmit={this.handleSubmit}>
-            <h4 className="ui dividing header">Add A Student</h4>
+            <h4 className="ui dividing header">Add A Campus</h4>
             <div className="two fields">
               <div className="field">
                 <label>Name</label>

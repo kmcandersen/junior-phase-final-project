@@ -3,6 +3,13 @@ const { db, Student, Campus } = require('./server/db');
 
 const students = [
   {
+    firstName: 'Douglas',
+    lastName: 'Puglas',
+    email: 'douglas@gmail.com',
+    imageUrl: 'https://robohash.org/douglas?set=set2',
+    gpa: 2.2
+  },
+  {
     firstName: 'Penelope',
     lastName: 'McGillicuddy',
     email: 'penelope@gmail.com',
@@ -22,6 +29,13 @@ const students = [
     email: 'titus@gmail.com',
     imageUrl: 'https://robohash.org/titus?set=set2',
     gpa: 3.1
+  },
+  {
+    firstName: 'Rhoda',
+    lastName: 'Dendron',
+    email: 'rhoda@gmail.com',
+    imageUrl: 'https://robohash.org/rhoda?set=set2',
+    gpa: 3.3
   },
   {
     firstName: 'Aaron',
@@ -71,6 +85,13 @@ const students = [
     email: 'muggsy@gmail.com',
     imageUrl: 'https://robohash.org/muggsy?set=set2',
     gpa: 3.8
+  },
+  {
+    firstName: 'Jacqueline',
+    lastName: 'Hyde',
+    email: 'jackie@gmail.com',
+    imageUrl: 'https://robohash.org/jacqueline?set=set2',
+    gpa: 3.8
   }
 ];
 
@@ -78,7 +99,7 @@ const campuses = [
   {
     name: 'Earth',
     address: '1 Earth Way, Chicago',
-    description: 'Highest % of human students',
+    description: 'Highest share of human students',
     imageUrl:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg'
   },
@@ -126,7 +147,7 @@ const campuses = [
   {
     name: 'Neptune',
     address: '142 Neptune Pkwy, Neptune Town',
-    description: "It/'s chilly out here",
+    description: "It's chilly out here",
     imageUrl:
       'https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg'
   },
@@ -143,16 +164,19 @@ const seed = async () => {
   try {
     await db.sync({ force: true });
     const [
+      douglas,
       penelope,
       helena,
       titus,
+      rhoda,
       aaron,
       victoria,
       terror,
       rorschach,
       trex,
       todd,
-      muggsy
+      muggsy,
+      jacqueline
     ] = await Student.bulkCreate(students, {
       returning: true,
       validate: true
@@ -177,9 +201,11 @@ const seed = async () => {
       earth.addStudents(penelope),
       earth.addStudents(victoria),
       mercury.addStudents(rorschach),
+      venus.addStudents(douglas),
       venus.addStudents(trex),
       jupiter.addStudents(helena),
       jupiter.addStudents(aaron),
+      saturn.addStudents(rhoda),
       neptune.addStudents(todd),
       pluto.addStudents(titus),
       pluto.addStudents(muggsy)

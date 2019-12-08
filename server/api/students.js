@@ -35,7 +35,8 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-router.put('/:id/update', async (req, res, next) => {
+// PUT api/students/id
+router.put('/:id/', async (req, res, next) => {
   try {
     const { firstName, lastName, gpa, email } = req.body;
     const updatedStudent = await Student.update(
@@ -43,7 +44,8 @@ router.put('/:id/update', async (req, res, next) => {
         firstName,
         lastName,
         gpa,
-        email
+        email,
+        imageUrl: `https://robohash.org/${firstName}?set=set2`
       },
       {
         where: { id: req.params.id },
@@ -51,6 +53,14 @@ router.put('/:id/update', async (req, res, next) => {
         plain: true
       }
     );
+    // const upStudent = await Student.findOne({
+    //   where: {
+    //     id: req.params.id
+    //   }
+    // });
+
+    //console.log('updated student', updatedStudent[1]);
+    // console.log('up student', upStudent);
     res.json(updatedStudent);
   } catch (err) {
     next(err);

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchSingleStudent } from '../redux/singleStudent';
+import { fetchSingleStudent } from '../redux/students';
 import { Link } from 'react-router-dom';
 import UpdateStudent from './UpdateStudent';
 
@@ -15,7 +15,7 @@ class StudentPage extends Component {
     }
   }
 
-  // ***Starts running when first letter typed in input field, but does update top profile when new info submitted
+  // ***Starts running when first letter typed in input field, but DOES update top profile when new info submitted
   //   componentDidUpdate() {
   //     try {
   //       const id = Number(this.props.match.params.id);
@@ -28,6 +28,7 @@ class StudentPage extends Component {
 
   // ***NOTE!! I wasn't able to successfully pass props to a separate "Student Profile" (above the divider) component; otherwise it would have been separate
   render() {
+    //console.log('STUDENT PAGE this.props', this.props);
     const { singleStudent } = this.props;
     const imageUrl = singleStudent.imageUrl || '';
     const firstName = singleStudent.firstName || '';
@@ -88,7 +89,7 @@ class StudentPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    singleStudent: state.singleStudent
+    singleStudent: state.students.singleStudent
   };
 };
 

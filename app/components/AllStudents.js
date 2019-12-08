@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import StudentCard from './StudentCard';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { removeStudent } from '../redux/singleStudent';
-import { fetchStudents } from '../redux/students';
+import { fetchStudents, removeStudent } from '../redux/students';
 
 class AllStudents extends Component {
   componentDidMount() {
@@ -15,15 +14,15 @@ class AllStudents extends Component {
   }
 
   render() {
-    const { students } = this.props;
-
+    const { students } = this.props.students;
+    //console.log('ALLSTUDENTS this.props', this.props);
     return (
       <div className="centered-parent">
         <div className="horiz-menu-row">
           <button type="submit" className="ui basic button add-button">
             <Link to="/students/add">
               Add A Student
-              <i className="plus square icon icon-padding"></i>
+              <i className="plus square icon icon-padding" />
             </Link>
           </button>
         </div>

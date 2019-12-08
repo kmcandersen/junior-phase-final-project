@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchSingleCampus } from '../redux/singleCampus';
+import { fetchSingleCampus } from '../redux/campuses';
 import CampusProfile from './CampusProfile';
-import StudentCard from './StudentCard class';
+import StudentCard from './StudentCard';
 
 class SingleCampus extends Component {
   componentDidMount() {
@@ -15,6 +15,7 @@ class SingleCampus extends Component {
   }
   render() {
     const campus = this.props.campus;
+    console.log('SingleCampus PROPS', campus);
 
     const students = this.props.students;
     const filteredStudents = students.filter(
@@ -58,8 +59,8 @@ class SingleCampus extends Component {
 
 const mapStateToProps = state => {
   return {
-    campus: state.singleCampus,
-    students: state.students
+    campus: state.campuses.singleCampus,
+    students: state.students.students
   };
 };
 

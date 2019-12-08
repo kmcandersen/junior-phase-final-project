@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchSingleStudent, updateStudent } from '../redux/singleStudent';
+import { fetchSingleStudent, updateStudent } from '../redux/students';
 import UpdateStudentForm from './UpdateStudentForm';
 
 class UpdateStudent extends Component {
