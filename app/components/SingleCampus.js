@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchSingleCampus } from '../redux/singleCampus';
 import CampusProfile from './CampusProfile';
-import StudentCard from './StudentCard';
+import StudentCard from './StudentCard class';
 
 class SingleCampus extends Component {
   componentDidMount() {

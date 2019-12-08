@@ -57,4 +57,17 @@ router.put('/:id/update', async (req, res, next) => {
   }
 });
 
+router.delete('/:id/', async (req, res, next) => {
+  try {
+    await Student.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+    res.status(204).end();
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;
