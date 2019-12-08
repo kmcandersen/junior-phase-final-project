@@ -30,7 +30,8 @@ class UpdateStudent extends Component {
     //console.log('INSIDE SUBMIT ID & STATE', id, this.state);
     // const id = Number(this.props.match.params.id);
     this.props.updateStudent(id, this.state);
-    //console.log('State after HSubmit', this.state);
+    //trying to update top profile when update form submitted:
+    //this.props.loadSingleStudent(id);
     this.setState({
       firstName: '',
       lastName: '',

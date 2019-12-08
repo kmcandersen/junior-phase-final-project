@@ -14,6 +14,18 @@ class StudentPage extends Component {
       console.log(err);
     }
   }
+
+  // ***Starts running when first letter typed in input field, but does update top profile when new info submitted
+  //   componentDidUpdate() {
+  //     try {
+  //       const id = Number(this.props.match.params.id);
+
+  //       this.props.loadSingleStudent(id);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+
   // ***NOTE!! I wasn't able to successfully pass props to a separate "Student Profile" (above the divider) component; otherwise it would have been separate
   render() {
     const { singleStudent } = this.props;
@@ -29,9 +41,9 @@ class StudentPage extends Component {
       <Fragment>
         <div className="custom-list">
           <div className="ui divided items custom-items ">
-            <div className="item custom-item">
+            <div className="item custom-item" key="singleStudent.id">
               <div className="image custom-image">
-                <img src={imageUrl}></img>
+                <img src={imageUrl} />
               </div>
               <div className="content">
                 <span className="header">{`${firstName} ${lastName}`}</span>

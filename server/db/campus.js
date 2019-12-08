@@ -15,7 +15,7 @@ const Campus = db.define('campus', {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    defaultValue: '../public/jeremy-thomas-4dpAqfTbvKA-unsplash.jpg'
+    defaultValue: 'http://kristenandersen.online/planets/galaxy.jpg'
   }
 });
 

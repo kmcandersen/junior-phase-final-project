@@ -102,5 +102,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-//withRouter??
 export default connect(null, mapDispatchToProps)(AddStudentForm);

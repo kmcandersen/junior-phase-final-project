@@ -45,6 +45,13 @@ const students = [
     gpa: 2.9
   },
   {
+    firstName: 'Rorschach',
+    lastName: 'Finklestein',
+    email: 'rorschach@gmail.com',
+    imageUrl: 'https://robohash.org/rorschach?set=set2',
+    gpa: 2.5
+  },
+  {
     firstName: 'T-Rex',
     lastName: 'Magoo',
     email: 'trex@gmail.com',
@@ -57,6 +64,13 @@ const students = [
     email: 'todd@gmail.com',
     imageUrl: 'https://robohash.org/todd?set=set2',
     gpa: 3.9
+  },
+  {
+    firstName: 'Muggsy',
+    lastName: 'Bogues',
+    email: 'muggsy@gmail.com',
+    imageUrl: 'https://robohash.org/muggsy?set=set2',
+    gpa: 3.8
   }
 ];
 
@@ -69,18 +83,52 @@ const campuses = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg'
   },
   {
-    name: 'Jupiter',
-    address: '12 Jupiter Ave, Jupiter City',
-    description: '79 moons (that we know of)',
+    name: 'Mercury',
+    address: '12 Mercury Rd, Mercury Heights',
+    description: 'Hot stuff',
     imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jupiter%2C_image_taken_by_NASA%27s_Hubble_Space_Telescope%2C_June_2019_-_Edited.jpg/1280px-Jupiter%2C_image_taken_by_NASA%27s_Hubble_Space_Telescope%2C_June_2019_-_Edited.jpg'
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mercury_in_color_-_Prockter07-edit1.jpg/1024px-Mercury_in_color_-_Prockter07-edit1.jpg'
+  },
+  {
+    name: 'Venus',
+    address: '17 Venutian Way, Venusville',
+    description: 'Bright minds',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg'
   },
   {
     name: 'Mars',
     address: '1996 Mars St, Marsville',
-    description: 'Best coders on the reddest planet',
+    description: 'The redder the better',
     imageUrl:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1024px-OSIRIS_Mars_true_color.jpg'
+  },
+  {
+    name: 'Jupiter',
+    address: '12 Jupiter Ave, Jupiter City',
+    description: '79 moons (that we know of)',
+    imageUrl: 'http://kristenandersen.online/planets/jupiter.jpg'
+  },
+  {
+    name: 'Saturn',
+    address: '77 Saturn St, Saturn City',
+    description: 'We love to code',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Saturn_during_Equinox_%28rot45%29.jpg/1024px-Saturn_during_Equinox_%28rot45%29.jpg'
+  },
+  {
+    name: 'Uranus',
+    address: '96 Uranus Ln, Uranus City',
+    description: 'An Ice Giant',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uranus2.jpg/1024px-Uranus2.jpg'
+  },
+  {
+    name: 'Neptune',
+    address: '142 Neptune Pkwy, Neptune Town',
+    description: "It/'s chilly out here",
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg'
   },
   {
     name: 'Pluto',
@@ -101,14 +149,26 @@ const seed = async () => {
       aaron,
       victoria,
       terror,
+      rorschach,
       trex,
-      todd
+      todd,
+      muggsy
     ] = await Student.bulkCreate(students, {
       returning: true,
       validate: true
     });
 
-    const [earth, jupiter, mars, pluto] = await Campus.bulkCreate(campuses, {
+    const [
+      earth,
+      mercury,
+      venus,
+      mars,
+      jupiter,
+      saturn,
+      uranus,
+      neptune,
+      pluto
+    ] = await Campus.bulkCreate(campuses, {
       returning: true,
       validate: true
     });
@@ -116,11 +176,13 @@ const seed = async () => {
     await Promise.all([
       earth.addStudents(penelope),
       earth.addStudents(victoria),
-      earth.addStudents(trex),
+      mercury.addStudents(rorschach),
+      venus.addStudents(trex),
       jupiter.addStudents(helena),
       jupiter.addStudents(aaron),
-      pluto.addStudents(todd),
-      pluto.addStudents(titus)
+      neptune.addStudents(todd),
+      pluto.addStudents(titus),
+      pluto.addStudents(muggsy)
     ]);
     // seed your database here!
   } catch (err) {
