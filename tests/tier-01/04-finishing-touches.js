@@ -79,102 +79,119 @@ describe('Tier One: Final Touches', () => {
     // xit('*** navbar to navigate to home, campuses, students', () => {
     //   throw new Error('replace this error with your own test');
     // });
-    it('*** navbar to navigate to home, campuses, students', () => {
-      const wrapper = shallow(<Navbar isAuth={true} />);
-      expect(
-        wrapper.containsMatchingElement(<NavLink to="/">Home</NavLink>).toBe(true);
-      wrapper.containsMatchingElement(<NavLink to="/campuses">Campuses</NavLink>).toBe(true);
-      wrapper.containsMatchingElement(<NavLink to="/students">Students</NavLink>).toBe(true);
-    );
-  });
+    //   it('*** navbar to navigate to home, campuses, students', () => {
+    //     const wrapper = shallow(<Navbar isAuth={true} />);
+    //     expect(
+    //       wrapper.containsMatchingElement(<NavLink to="/">Home</NavLink>).toBe(true);
+    //     wrapper.containsMatchingElement(<NavLink to="/campuses">Campuses</NavLink>).toBe(true);
+    //     wrapper.containsMatchingElement(<NavLink to="/students">Students</NavLink>).toBe(true);
+    //   )
+    // });
 
-  describe('Seed file', () => {
-    beforeEach(seed);
+    describe('Seed file', () => {
+      beforeEach(seed);
 
-    it('populates the database with at least three campuses', async () => {
-      const campuses = await Campus.findAll();
-      expect(campuses).to.have.lengthOf.at.least(3);
-    });
-
-    it('populates the database with at least four students', async () => {
-      const students = await Student.findAll();
-      expect(students).to.have.lengthOf.at.least(4);
-    });
-
-    xit('*** creates exactly one campus that has no students', async () => {
-      throw new Error('replace this error with your own test');
-    });
-
-    xit('*** creates exactly one student that is not enrolled in a campus', async () => {
-      throw new Error('replace this error with your own test');
-    });
-  });
-
-  describe('React-Redux', () => {
-    const campuses = [
-      { id: 1, name: 'Mars Academy', imageUrl: '/images/mars.png' },
-      { id: 2, name: 'Jupiter Jumpstart', imageUrl: '/images/jupiter.jpeg' }
-    ];
-    const students = [
-      { id: 1, firstName: 'Mae', lastName: 'Jemison' },
-      { id: 2, firstName: 'Sally', lastName: 'Ride' }
-    ];
-    beforeEach(() => {
-      sinon.stub(rrd, 'BrowserRouter').callsFake(({ children }) => {
-        return <div>{children}</div>;
+      it('populates the database with at least three campuses', async () => {
+        const campuses = await Campus.findAll();
+        expect(campuses).to.have.lengthOf.at.least(3);
       });
-      mockAxios.onGet('/api/campuses').replyOnce(200, campuses);
-      mockAxios.onGet('/api/students').replyOnce(200, students);
-    });
-    afterEach(() => {
-      rrd.BrowserRouter.restore();
+
+      it('populates the database with at least four students', async () => {
+        const students = await Student.findAll();
+        expect(students).to.have.lengthOf.at.least(4);
+      });
+
+      // xit('*** creates exactly one campus that has no students', async () => {
+      //   throw new Error('replace this error with your own test');
+      // });
+      it('*** creates exactly one campus that has no students', async () => {
+        const unenrolledCampus = await Campus.findAll({
+          include: [{ model: Student, where: { campusId: null } }]
+        });
+        expect(unenrolledCampus).to.have.lengthOf(1);
+      });
+
+      // xit('*** creates exactly one student that is not enrolled in a campus', async () => {
+      //   throw new Error('replace this error with your own test');
+      // });
+      it('*** creates exactly one student that is not enrolled in a campus', async () => {
+        const unenrolledStudent = await Student.findAll({
+          include: [{ model: Campus, where: { id: null } }]
+        });
+        expect(unenrolledStudent).to.have.lengthOf(1);
+      });
     });
 
-    it('initializes campuses and students from the server when the app first loads', async () => {
-      const reduxStateBeforeMount = store.getState();
-      expect(reduxStateBeforeMount.campuses).to.deep.equal([]);
-      expect(reduxStateBeforeMount.students).to.deep.equal([]);
-      mount(
-        <Provider store={store}>
-          <MemoryRouter initialEntries={['/']}>
-            <Root />
-          </MemoryRouter>
-        </Provider>
-      );
-      await waitFor(10); // wait for 10 milliseconds
-      const reduxStateAfterMount = store.getState();
-      expect(reduxStateAfterMount.campuses).to.deep.equal(campuses);
-      expect(reduxStateAfterMount.students).to.deep.equal(students);
-    });
+    describe('React-Redux', () => {
+      const campuses = [
+        { id: 1, name: 'Mars Academy', imageUrl: '/images/mars.png' },
+        { id: 2, name: 'Jupiter Jumpstart', imageUrl: '/images/jupiter.jpeg' }
+      ];
+      const students = [
+        { id: 1, firstName: 'Mae', lastName: 'Jemison' },
+        { id: 2, firstName: 'Sally', lastName: 'Ride' }
+      ];
+      beforeEach(() => {
+        sinon.stub(rrd, 'BrowserRouter').callsFake(({ children }) => {
+          return <div>{children}</div>;
+        });
+        mockAxios.onGet('/api/campuses').replyOnce(200, campuses);
+        mockAxios.onGet('/api/students').replyOnce(200, students);
+      });
+      afterEach(() => {
+        rrd.BrowserRouter.restore();
+      });
 
-    it('<AllCampuses /> is passed campuses from store as props', async () => {
-      const wrapper = mount(
-        <Provider store={store}>
-          <MemoryRouter initialEntries={['/campuses']}>
-            <Root />
-          </MemoryRouter>
-        </Provider>
-      );
-      await waitFor(10); // wait for 10 milliseconds
-      wrapper.update();
-      const { campuses: reduxCampuses } = store.getState();
-      const { campuses: componentCampuses } = wrapper.find(AllCampuses).props();
-      expect(componentCampuses).to.deep.equal(reduxCampuses);
-    });
+      it('initializes campuses and students from the server when the app first loads', async () => {
+        const reduxStateBeforeMount = store.getState();
+        expect(reduxStateBeforeMount.campuses).to.deep.equal([]);
+        expect(reduxStateBeforeMount.students).to.deep.equal([]);
+        mount(
+          <Provider store={store}>
+            <MemoryRouter initialEntries={['/']}>
+              <Root />
+            </MemoryRouter>
+          </Provider>
+        );
+        await waitFor(10); // wait for 10 milliseconds
+        const reduxStateAfterMount = store.getState();
+        expect(reduxStateAfterMount.campuses).to.deep.equal(campuses);
+        expect(reduxStateAfterMount.students).to.deep.equal(students);
+      });
 
-    it('<AllStudents /> is passed students from store as props', async () => {
-      const wrapper = mount(
-        <Provider store={store}>
-          <MemoryRouter initialEntries={['/students']}>
-            <Root />
-          </MemoryRouter>
-        </Provider>
-      );
-      await waitFor(10); // wait for 10 milliseconds
-      wrapper.update();
-      const { students: reduxStudents } = store.getState();
-      const { students: componentStudents } = wrapper.find(AllStudents).props();
-      expect(componentStudents).to.deep.equal(reduxStudents);
+      it('<AllCampuses /> is passed campuses from store as props', async () => {
+        const wrapper = mount(
+          <Provider store={store}>
+            <MemoryRouter initialEntries={['/campuses']}>
+              <Root />
+            </MemoryRouter>
+          </Provider>
+        );
+        await waitFor(10); // wait for 10 milliseconds
+        wrapper.update();
+        const { campuses: reduxCampuses } = store.getState();
+        const { campuses: componentCampuses } = wrapper
+          .find(AllCampuses)
+          .props();
+        expect(componentCampuses).to.deep.equal(reduxCampuses);
+      });
+
+      it('<AllStudents /> is passed students from store as props', async () => {
+        const wrapper = mount(
+          <Provider store={store}>
+            <MemoryRouter initialEntries={['/students']}>
+              <Root />
+            </MemoryRouter>
+          </Provider>
+        );
+        await waitFor(10); // wait for 10 milliseconds
+        wrapper.update();
+        const { students: reduxStudents } = store.getState();
+        const { students: componentStudents } = wrapper
+          .find(AllStudents)
+          .props();
+        expect(componentStudents).to.deep.equal(reduxStudents);
+      });
     });
   });
 });

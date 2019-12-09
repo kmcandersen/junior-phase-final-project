@@ -46,7 +46,6 @@ router.put('/:id/', async (req, res, next) => {
         }
       });
       updatedCampusStudent.setCampus(null);
-      console.log('inside PUT - updatedCS', updatedCampusStudent);
       res.json(updatedCampusStudent);
     } else {
       const { firstName, lastName, gpa, email } = req.body;

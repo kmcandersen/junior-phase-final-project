@@ -87,8 +87,11 @@ describe('Tier One: Students', () => {
         testStore = createStore(rootReducer);
       });
 
-      xit('*** returns the initial state by default', () => {
-        throw new Error('replace this error with your own test');
+      // xit('*** returns the initial state by default', () => {
+      //   throw new Error('replace this error with your own test');
+      // });
+      it('*** returns the initial state by default', () => {
+        expect(testStore).to.equal([]);
       });
 
       it('reduces on SET_STUDENTS action', () => {
@@ -127,19 +130,13 @@ describe('Tier One: Students', () => {
     // xit('*** GET /api/students responds with all students', async () => {
     //   throw new Error('replace this error with your own test');
     // });
-    it('*** GET /api/students responds with all students', async () => {
-      const newStudents = [
-        Student.create({ firstName: 'simon', lastName: 'andersen' }),
-        Student.create({ firstName: 'seeley', lastName: 'andersen' }),
-        Student.create({ firstName: 'nigel', lastName: 'andersen' })
-      ];
-      await Promise.all(newStudents);
-      await agent()
-        .get('/api/students')
-        .expect(200)
-        .then(response => {
-          expect(response.body).to.have.lengthOf(newStudents.length);
-        });
+    it('GET /api/students responds with all students', async () => {
+      const response = await agent.get('/api/students').expect(200);
+      expect(response.body).to.deep.equal([
+        { id: 1, firstName: 'Mae', lastName: 'Jemison' },
+        { id: 2, firstName: 'Sally', lastName: 'Ride' }
+      ]);
+      expect(Student.findAll.calledOnce).to.be.equal(true);
     });
   });
 

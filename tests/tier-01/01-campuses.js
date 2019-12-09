@@ -62,7 +62,7 @@ describe('Tier One: Campuses', () => {
     // });
     it('renders "No Campuses" if passed an empty array of campuses', () => {
       const wrapper = shallow(<AllCampuses campuses={[]} />);
-      expect(wrapper).to.equal('No Campuses');
+      expect(wrapper.text()).to.equal('No Campuses');
     });
   });
 
@@ -100,8 +100,11 @@ describe('Tier One: Campuses', () => {
         testStore = createStore(rootReducer);
       });
 
-      xit('*** returns the initial state by default', () => {
-        throw new Error('replace this error with your own test');
+      // xit('*** returns the initial state by default', () => {
+      //   throw new Error('replace this error with your own test');
+      // });
+      it('*** returns the initial state by default', () => {
+        expect(testStore).to.equal([]);
       });
 
       it('reduces on SET_CAMPUSES action', () => {
@@ -178,7 +181,6 @@ describe('Tier One: Campuses', () => {
     // xit('*** requires name and address', async () => {
     //   throw new Error('replace this error with your own test');
     // });
-
     it('requires name and address', async () => {
       const campus = Campus.build();
       try {
