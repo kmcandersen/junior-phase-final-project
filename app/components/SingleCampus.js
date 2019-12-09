@@ -40,9 +40,16 @@ class SingleCampus extends Component {
         />
         <div className="ui divider" />
 
-        <div className="custom-list custom-card-list ui cards">
+        <div
+          className="custom-list custom-card-list ui cards"
+          id="header-msg-width"
+        >
           {!filteredStudents.length ? (
-            <p>NO STUDENTS ENROLLED</p>
+            <div className="horiz-menu-row">
+              <div className="ui message">
+                <div className="header header-msg">No Students Enrolled</div>
+              </div>
+            </div>
           ) : (
             filteredStudents.map(student => {
               return (

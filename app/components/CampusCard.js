@@ -20,7 +20,7 @@ const CampusCard = props => {
         </div>
         <div className="content">
           <Link to={`/campuses/${id}`}>
-            <div className="header">{name}</div>
+            <div className="header header-link">{name}</div>
           </Link>
         </div>
         <div className="meta">

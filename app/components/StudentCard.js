@@ -15,7 +15,7 @@ const StudentCard = props => {
         </div>
         <div className="content">
           <Link to={`/students/${id}`}>
-            <div className="header">{`${firstName} ${lastName}`}</div>
+            <div className="header header-link">{`${firstName} ${lastName}`}</div>
           </Link>
         </div>
 

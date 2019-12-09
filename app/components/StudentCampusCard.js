@@ -7,15 +7,7 @@ import { removeStudent } from '../redux/students';
 // campusId null (not num)
 
 const StudentCampusCard = props => {
-  const {
-    id,
-    imageUrl,
-    firstName,
-    lastName,
-    gpa,
-    email,
-    deleteStudent
-  } = props;
+  const { id, firstName, lastName, gpa, email, deleteStudent } = props;
 
   const notEnrolled = 'Not enrolled';
   const campus = props.campus || notEnrolled;
@@ -23,12 +15,9 @@ const StudentCampusCard = props => {
   return (
     <div className="custom-card">
       <div className="ui card">
-        <div className="image">
-          <img src={imageUrl}></img>
-        </div>
         <div className="content">
           <Link to={`/students/${id}`}>
-            <div className="header">{`${firstName} ${lastName}`}</div>
+            <div className="header header-link">{`${firstName} ${lastName}`}</div>
           </Link>
         </div>
 

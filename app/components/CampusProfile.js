@@ -12,28 +12,25 @@ const CampusProfile = ({
       <div className="ui divided items custom-items ">
         <div className="item custom-item">
           <div className="image custom-image">
-            <img src={imageUrl}></img>
+            <img src={imageUrl} />
           </div>
           <div className="content">
-            <span className="header">{name}</span>
+            <span className="header header-link">{name}</span>
             <div className="meta">
               <span className="cinema">{description}</span>
             </div>
-            {/* <div className="description">
-          <p></p>
-        </div> */}
             <div className="extra content">
               <span className="right floated">{address}</span>
               <span>
-                <i className="map marker alternate icon"></i>
+                <i className="map marker alternate icon" />
                 Address
               </span>
             </div>
-            <div className="ui divider div-sm"></div>
+            <div className="ui divider div-sm" />
             <div className="extra content">
-              <span className="right floated"></span>
+              <span className="right floated" />
               <span>
-                <i className="user icon"></i>
+                <i className="user icon" />
                 {campusStudents}
               </span>
             </div>

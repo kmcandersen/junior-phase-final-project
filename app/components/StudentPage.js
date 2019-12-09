@@ -35,7 +35,7 @@ class StudentPage extends Component {
                 <img src={imageUrl} />
               </div>
               <div className="content">
-                <span className="header">{`${firstName} ${lastName}`}</span>
+                <span className="header header-link">{`${firstName} ${lastName}`}</span>
 
                 {campus === 'Not enrolled' ? (
                   <div className="meta">

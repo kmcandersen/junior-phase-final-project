@@ -10,7 +10,7 @@
 .root {
   background: linear-gradient(110deg, #e7e7e7 60%, #dfdfdf 60%);
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   /* background: linear-gradient(#ffffff, #c0c0c0); */
   /* height: 100vh;
   padding: 0;
@@ -49,7 +49,6 @@
   border-bottom: 5px solid red;
 }
 
-/* AllStudents */
 .centered-parent {
   display: flex;
   align-items: center;
@@ -57,6 +56,47 @@
   width: 100vw;
 }
 
+/* Home page */
+.main {
+  height: 100vh;
+  /* border: 1px solid red; */
+}
+.school-name {
+  /* border: 1px solid red; */
+  text-align: center;
+  width: 80vw;
+  margin: 4rem;
+}
+
+.stat-num,
+.statistics .icon {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 3rem;
+}
+
+.ui.statistics .statistic > .label {
+  text-transform: lowercase;
+  letter-spacing: 5px;
+  padding-top: 5px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.stat-num {
+  padding-left: 10px;
+}
+
+.school-name > p {
+  font-size: 5.5rem;
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 0;
+  line-height: 0.9em;
+}
+
+#rocket-sm {
+  font-size: 2rem;
+}
+
+/* AllStudents */
 .custom-card-list {
   /* display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -98,10 +138,9 @@
 
 .horiz-menu-row {
   display: flex;
-  justify-content: space-around;
+  justify-content: centered;
   /* border: 1px solid red; */
   margin: 2.5rem;
-  width: 40%;
 }
 
 .hello-active {
@@ -152,6 +191,7 @@
 
 .ui.items > .item > .custom-image > img {
   height: 100%;
+  background: #fff;
 }
 
 .ui.items > .item .meta {
@@ -175,30 +215,22 @@
 }
 
 /* Card titles */
-.header {
+.header-link {
   color: red;
   font-size: 1.1rem;
 }
-.header:hover {
+.header-link:hover {
   transition: all 0.5s ease;
   font-size: 1.15rem;
 }
 
-/* Home page */
-main {
-  text-align: center;
-  width: 80vw;
-  padding: 2.5rem;
+/* No students enrolled */
+.header-msg {
+  color: #6a6969;
 }
 
-.ui.statistics .statistic > .label {
-  text-transform: lowercase;
-  letter-spacing: 5px;
-  padding-top: 5px;
-}
-
-.stat-num {
-  padding-left: 10px;
+#header-msg-width {
+  width: 100vw;
 }
 
 /* Add/plus button */

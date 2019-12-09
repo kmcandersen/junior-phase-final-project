@@ -28,7 +28,11 @@ class AllStudents extends Component {
         </div>
         <div className="custom-list custom-card-list ui cards">
           {!students.length ? (
-            <p>NO STUDENTS ENROLLED</p>
+            <div className="horiz-menu-row">
+              <div className="ui message">
+                <div className="header header-msg">No Students Enrolled</div>
+              </div>
+            </div>
           ) : (
             students.map(student => {
               return (
