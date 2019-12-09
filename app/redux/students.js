@@ -57,6 +57,7 @@ export const postStudent = student => {
   return async dispatch => {
     try {
       const response = await axios.post('/api/students', student);
+      //const newStudent = response.data.student;
       const newStudent = response.data.student;
       dispatch(addStudent(newStudent));
     } catch (err) {

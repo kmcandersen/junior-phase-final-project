@@ -79,10 +79,23 @@ export const removeCampus = id => {
   return async dispatch => {
     try {
       const { data } = await axios.delete(`/api/campuses/${id}`);
-      dispatch(deleteSingleStudent(data));
-      dispatch(fetchStudents());
+      dispatch(deleteSingleCampus(data));
+      dispatch(fetchCampuses());
     } catch (err) {
-      console.log('Err removing student: ', err);
+      console.log('Err removing campus: ', err);
+    }
+  };
+};
+
+export const updateCampus = (id, campus) => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.put(`/api/campuses/${id}`, campus);
+      dispatch(putSingleCampus(data));
+      dispatch(fetchSingleCampus(data[1].id));
+      dispatch(fetchCampuses());
+    } catch (err) {
+      console.log('Err updating campus: ', err);
     }
   };
 };
@@ -103,6 +116,24 @@ export default (state = initialState, action) => {
       return { ...state, campuses: [...state.campuses, action.campus] };
     case GET_SINGLE_CAMPUS:
       return { ...state, singleCampus: action.campus };
+    case PUT_SINGLE_CAMPUS: {
+      const filteredCampuses = state.campuses.filter(
+        campus => campus.id !== action.campus.id
+      );
+      return {
+        ...state,
+        campuses: [...filteredCampuses, action.campus]
+      };
+    }
+    case DELETE_SINGLE_CAMPUS: {
+      const filteredCampuses = state.campuses.filter(
+        campus => campus.id !== action.campus.id
+      );
+      return {
+        ...state,
+        campuses: [...filteredCampuses]
+      };
+    }
     default:
       return state;
   }

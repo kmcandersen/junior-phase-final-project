@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchSingleCampus } from '../redux/campuses';
 import CampusProfile from './CampusProfile';
-import StudentCard from './StudentCard';
+import StudentCampusCard from './StudentCampusCard';
+import UpdateCampus from './UpdateCampus';
 
 class SingleCampus extends Component {
   componentDidMount() {
@@ -15,7 +16,7 @@ class SingleCampus extends Component {
   }
   render() {
     const campus = this.props.campus;
-    console.log('SingleCampus PROPS', campus);
+    //console.log('SingleCampus PROPS', campus);
 
     const students = this.props.students;
     const filteredStudents = students.filter(
@@ -37,7 +38,7 @@ class SingleCampus extends Component {
           {...campus}
           campusStudents={studentMessage(filteredStudents.length)}
         />
-        <div className="ui divider"></div>
+        <div className="ui divider" />
 
         <div className="custom-list custom-card-list ui cards">
           {!filteredStudents.length ? (
@@ -46,12 +47,13 @@ class SingleCampus extends Component {
             filteredStudents.map(student => {
               return (
                 <div key={student.id}>
-                  <StudentCard {...student} />
+                  <StudentCampusCard {...student} />
                 </div>
               );
             })
           )}
         </div>
+        <UpdateCampus {...campus} />
       </Fragment>
     );
   }

@@ -8,23 +8,11 @@ class StudentPage extends Component {
   componentDidMount() {
     try {
       const id = Number(this.props.match.params.id);
-
       this.props.loadSingleStudent(id);
     } catch (err) {
       console.log(err);
     }
   }
-
-  // ***Starts running when first letter typed in input field, but DOES update top profile when new info submitted
-  //   componentDidUpdate() {
-  //     try {
-  //       const id = Number(this.props.match.params.id);
-
-  //       this.props.loadSingleStudent(id);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   }
 
   // ***NOTE!! I wasn't able to successfully pass props to a separate "Student Profile" (above the divider) component; otherwise it would have been separate
   render() {
