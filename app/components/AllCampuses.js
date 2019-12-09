@@ -32,20 +32,28 @@ class AllCampuses extends Component {
         </div>
 
         <div className="custom-list custom-card-list ui cards">
-          {campuses.map(campus => {
-            return (
-              <div key={campus.id}>
-                <CampusCard
-                  {...campus}
-                  deleteCampus={this.props.deleteCampus}
-                  numStudents={
-                    students.filter(student => student.campusId === campus.id)
-                      .length
-                  }
-                />
+          {!campuses.length ? (
+            <div className="horiz-menu-row">
+              <div className="ui message">
+                <div className="header header-msg">No Campuses</div>
               </div>
-            );
-          })}
+            </div>
+          ) : (
+            campuses.map(campus => {
+              return (
+                <div key={campus.id}>
+                  <CampusCard
+                    {...campus}
+                    deleteCampus={this.props.deleteCampus}
+                    numStudents={
+                      students.filter(student => student.campusId === campus.id)
+                        .length
+                    }
+                  />
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     );

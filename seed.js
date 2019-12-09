@@ -17,6 +17,13 @@ const students = [
     gpa: 3.2
   },
   {
+    firstName: 'Seeley',
+    lastName: 'Garoppolo',
+    email: 'seeley@gmail.com',
+    imageUrl: 'https://robohash.org/seeley?set=set2',
+    gpa: 3.2
+  },
+  {
     firstName: 'Hortensia',
     lastName: 'Horstein',
     email: 'hortensia@gmail.com',
@@ -36,6 +43,13 @@ const students = [
     email: 'rhoda@gmail.com',
     imageUrl: 'https://robohash.org/rhoda?set=set2',
     gpa: 3.3
+  },
+  {
+    firstName: 'Larry',
+    lastName: 'Mullen Jr.',
+    email: 'larry@gmail.com',
+    imageUrl: 'https://robohash.org/larry?set=set2',
+    gpa: 2.9
   },
   {
     firstName: 'Aaron',
@@ -78,6 +92,13 @@ const students = [
     email: 'todd@gmail.com',
     imageUrl: 'https://robohash.org/todd?set=set2',
     gpa: 3.9
+  },
+  {
+    firstName: 'Fauntleroy',
+    lastName: 'Buffington III',
+    email: 'fauntleroy@gmail.com',
+    imageUrl: 'https://robohash.org/fauntleroy?set=set2',
+    gpa: 3.1
   },
   {
     firstName: 'Muggsy',
@@ -146,7 +167,7 @@ const campuses = [
   },
   {
     name: 'Neptune',
-    address: '142 Neptune Pkwy, Neptune Town',
+    address: '142 Neptune Pkwy, Neptunia',
     description: "It's chilly out here",
     imageUrl:
       'https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg'
@@ -166,15 +187,18 @@ const seed = async () => {
     const [
       douglas,
       penelope,
+      seeley,
       helena,
       titus,
       rhoda,
+      larry,
       aaron,
       victoria,
       terror,
       rorschach,
       trex,
       todd,
+      fauntleroy,
       muggsy,
       jacqueline
     ] = await Student.bulkCreate(students, {
@@ -200,13 +224,16 @@ const seed = async () => {
     await Promise.all([
       earth.addStudents(penelope),
       earth.addStudents(victoria),
+      earth.addStudents(seeley),
       mercury.addStudents(rorschach),
       venus.addStudents(douglas),
       venus.addStudents(trex),
       jupiter.addStudents(helena),
       jupiter.addStudents(aaron),
       saturn.addStudents(rhoda),
+      saturn.addStudents(larry),
       neptune.addStudents(todd),
+      neptune.addStudents(fauntleroy),
       pluto.addStudents(titus),
       pluto.addStudents(muggsy)
     ]);

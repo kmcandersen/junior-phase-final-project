@@ -4,7 +4,7 @@ const UpdateCampusForm = props => {
   //console.log('FORM props', props);
   return (
     <div className="centered-parent">
-      <div className="ui segment" id="form-segment-addS">
+      <div className="ui segment" id="form-segment-addC">
         <form className="ui form" onSubmit={props.handleSubmit}>
           <h4 className="ui dividing header">Update Campus Details</h4>
           <div className="two fields">

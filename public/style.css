@@ -10,22 +10,7 @@
 .root {
   background: linear-gradient(110deg, #e7e7e7 60%, #dfdfdf 60%);
   width: 100vw;
-  /* height: 100vh; */
-  /* background: linear-gradient(#ffffff, #c0c0c0); */
-  /* height: 100vh;
-  padding: 0;
-  margin: 0;
-  width: 100vw; */
 }
-
-/* nav {
-  align-items: center;
-  background-color: #333333;
-  color: #c0c0c0;
-  display: flex;
-  height: 80px;
-  padding: 10px;
-} */
 
 .root-nav {
   background-color: black;
@@ -58,14 +43,15 @@
 
 /* Home page */
 .main {
-  height: 100vh;
+  justify-content: center;
   /* border: 1px solid red; */
+  height: 90vh;
 }
 .school-name {
   /* border: 1px solid red; */
   text-align: center;
   width: 80vw;
-  margin: 4rem;
+  /* margin: 4rem; */
 }
 
 .stat-num,
@@ -93,15 +79,13 @@
 }
 
 #rocket-sm {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin: 0 0.5rem 0 0;
+  vertical-align: 18%;
 }
 
 /* AllStudents */
 .custom-card-list {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 0 10px;
-  grid-auto-rows: 10px; */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -114,16 +98,23 @@
   margin: 1rem;
 }
 
-.card {
-  font-size: 0.85rem;
-}
-
 #card-desc {
   padding-left: 1em;
   font-size: 1.1em;
 }
 
-/* SingleStudent profile */
+.card {
+  font-size: 0.9rem;
+}
+
+/* SingleStudent/Campus profile */
+
+#header-profile-campus,
+#header-profile-student {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.8rem;
+  padding-top: 2px;
+}
 .custom-items {
   /* font-size: 1.1rem; */
   /* margin: 40px; */
@@ -150,36 +141,6 @@
   color: rgba(0, 0, 0, 0.87);
 }
 
-/* .ui.button,
-.ui.button:focus {
-  background-color: #98adbe;
-}
-
-.ui.button:hover {
-  background-color: #839cb1;
-} */
-
-/* .content {
-  margin: 0;
-} */
-
-/* main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-} */
-
-/* .card-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 0 10px;
-  grid-auto-rows: 10px;
-}
-
-.card-list img {
-  width: 250px;
-} */
-
 .ui.divider.div-sm {
   margin: 5px 0 0 0;
 }
@@ -198,30 +159,22 @@
   margin-bottom: 1.2em;
 }
 
-/* #remove-robot {
-  color: #6e8ca4;
-  font-size: 1.1em;
-}
-
-#remove-robot:hover {
-  color: #456b8a;
-} */
-
 /* req id to change semantic-ui styling */
 #form-segment-addC,
 #form-segment-addS {
   width: 80vw;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 /* Card titles */
 .header-link {
   color: red;
-  font-size: 1.1rem;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.6rem;
 }
 .header-link:hover {
   transition: all 0.5s ease;
-  font-size: 1.15rem;
+  font-size: 1.65rem;
 }
 
 /* No students enrolled */
@@ -241,9 +194,6 @@
   padding-left: 0.5em;
 }
 
-/* .delete-icon {
-  color: #6a6969;
-} */
 .delete-button:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }

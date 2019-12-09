@@ -15,7 +15,9 @@ const CampusProfile = ({
             <img src={imageUrl} />
           </div>
           <div className="content">
-            <span className="header header-link">{name}</span>
+            <span className="header header-link" id="header-profile-campus">
+              {name}
+            </span>
             <div className="meta">
               <span className="cinema">{description}</span>
             </div>
