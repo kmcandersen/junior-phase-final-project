@@ -76,9 +76,16 @@ describe('Tier One: Final Touches', () => {
       expect(wrapper.find(AllStudents)).to.have.length(1);
     });
 
-    xit('*** navbar to navigate to home, campuses, students', () => {
-      throw new Error('replace this error with your own test');
-    });
+    // xit('*** navbar to navigate to home, campuses, students', () => {
+    //   throw new Error('replace this error with your own test');
+    // });
+    it('*** navbar to navigate to home, campuses, students', () => {
+      const wrapper = shallow(<Navbar isAuth={true} />);
+      expect(
+        wrapper.containsMatchingElement(<NavLink to="/">Home</NavLink>).toBe(true);
+      wrapper.containsMatchingElement(<NavLink to="/campuses">Campuses</NavLink>).toBe(true);
+      wrapper.containsMatchingElement(<NavLink to="/students">Students</NavLink>).toBe(true);
+    );
   });
 
   describe('Seed file', () => {

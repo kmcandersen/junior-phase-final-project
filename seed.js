@@ -171,13 +171,6 @@ const campuses = [
     description: "It's chilly out here",
     imageUrl:
       'https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg'
-  },
-  {
-    name: 'Pluto',
-    address: '76 Pluto Rd, Plutopolis',
-    description: 'Small but mighty',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Pluto_in_True_Color_-_High-Res.jpg/1280px-Pluto_in_True_Color_-_High-Res.jpg'
   }
 ];
 
@@ -214,8 +207,7 @@ const seed = async () => {
       jupiter,
       saturn,
       uranus,
-      neptune,
-      pluto
+      neptune
     ] = await Campus.bulkCreate(campuses, {
       returning: true,
       validate: true
@@ -226,6 +218,7 @@ const seed = async () => {
       earth.addStudents(victoria),
       earth.addStudents(seeley),
       mercury.addStudents(rorschach),
+      mercury.addStudents(jacqueline),
       venus.addStudents(douglas),
       venus.addStudents(trex),
       jupiter.addStudents(helena),
@@ -234,8 +227,8 @@ const seed = async () => {
       saturn.addStudents(larry),
       neptune.addStudents(todd),
       neptune.addStudents(fauntleroy),
-      pluto.addStudents(titus),
-      pluto.addStudents(muggsy)
+      neptune.addStudents(titus),
+      uranus.addStudents(muggsy)
     ]);
     // seed your database here!
   } catch (err) {

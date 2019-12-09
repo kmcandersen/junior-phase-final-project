@@ -57,8 +57,12 @@ describe('Tier One: Campuses', () => {
       ]);
     });
 
-    xit('*** renders "No Campuses" if passed an empty array of campuses', () => {
-      throw new Error('replace this error with your own test');
+    // xit('*** renders "No Campuses" if passed an empty array of campuses', () => {
+    //   throw new Error('replace this error with your own test');
+    // });
+    it('renders "No Campuses" if passed an empty array of campuses', () => {
+      const wrapper = shallow(<AllCampuses campuses={[]} />);
+      expect(wrapper).to.equal('No Campuses');
     });
   });
 
@@ -171,8 +175,19 @@ describe('Tier One: Campuses', () => {
       );
     });
 
-    xit('*** requires name and address', async () => {
-      throw new Error('replace this error with your own test');
+    // xit('*** requires name and address', async () => {
+    //   throw new Error('replace this error with your own test');
+    // });
+
+    it('requires name and address', async () => {
+      const campus = Campus.build();
+      try {
+        await campus.validate();
+        throw Error('validation should have failed without name and address');
+      } catch (err) {
+        expect(err.message).to.contain('name cannot be null');
+        expect(err.message).to.contain('address cannot be null');
+      }
     });
 
     it('name and address cannot be empty', async () => {

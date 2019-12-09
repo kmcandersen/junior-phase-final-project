@@ -36,11 +36,6 @@ const CampusProfile = ({
                 {campusStudents}
               </span>
             </div>
-            <div className="extra content">
-              <button type="submit" className="ui button">
-                Update
-              </button>
-            </div>
           </div>
         </div>
       </div>

@@ -44,8 +44,12 @@ describe('Tier One: Students', () => {
       expect(wrapper.text()).to.include('Sally Ride');
     });
 
-    xit('*** renders "No Students" if passed an empty array of students', () => {
-      throw new Error('replace this error with your own test');
+    // xit('*** renders "No Students" if passed an empty array of students', () => {
+    //   throw new Error('replace this error with your own test');
+    // });
+    it('renders "No Students" if passed an empty array of students', () => {
+      const wrapper = shallow(<AllStudents students={[]} />);
+      expect(wrapper).to.equal('No Students');
     });
   });
 
@@ -120,8 +124,22 @@ describe('Tier One: Students', () => {
       Student.findAll = studentFindAll;
     });
 
-    xit('*** GET /api/students responds with all students', async () => {
-      throw new Error('replace this error with your own test');
+    // xit('*** GET /api/students responds with all students', async () => {
+    //   throw new Error('replace this error with your own test');
+    // });
+    it('*** GET /api/students responds with all students', async () => {
+      const newStudents = [
+        Student.create({ firstName: 'simon', lastName: 'andersen' }),
+        Student.create({ firstName: 'seeley', lastName: 'andersen' }),
+        Student.create({ firstName: 'nigel', lastName: 'andersen' })
+      ];
+      await Promise.all(newStudents);
+      await agent()
+        .get('/api/students')
+        .expect(200)
+        .then(response => {
+          expect(response.body).to.have.lengthOf(newStudents.length);
+        });
     });
   });
 
@@ -172,8 +190,20 @@ describe('Tier One: Students', () => {
       }
     });
 
-    xit('*** email must be a valid email', async () => {
-      throw new Error('replace this error with your own test');
+    // xit('*** email must be a valid email', async () => {
+    //   throw new Error('replace this error with your own test');
+    // });
+    it('***email must be a valid email', async () => {
+      const student = Student.build({
+        firstName: 'Simon',
+        lastName: 'Andersen',
+        email: 'simonandersen'
+      });
+      try {
+        await student.validate();
+      } catch (err) {
+        expect(err.message).to.contain('Validation isEmail on email failed');
+      }
     });
 
     it('gpa must be a float between 0.0 and 4.0', async () => {
