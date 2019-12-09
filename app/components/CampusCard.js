@@ -32,10 +32,6 @@ const CampusCard = props => {
             {address}
           </span>
         </div>
-        {/* <div className="extra content">
-            <span className="right floated">{description}</span>
-            <span>{description}</span>
-          </div> */}
         <div className="extra content">
           <span>
             <i className="user icon" />

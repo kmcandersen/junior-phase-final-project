@@ -45,7 +45,6 @@ export const fetchStudents = () => {
   return async dispatch => {
     try {
       const { data } = await axios.get('/api/students');
-      //console.log('DATA FROM FETCH THUNK', data);
       dispatch(setStudents(data));
     } catch (err) {
       console.log('Err fetching students: ', err);
@@ -89,14 +88,17 @@ export const removeStudent = id => {
   };
 };
 
-//import get students thunk, dispatch inside
-//update sel students, refecth all students
 export const updateStudent = (id, student) => {
   return async dispatch => {
     try {
       const { data } = await axios.put(`/api/students/${id}`, student);
-      // console.log('PSSdata', data);
+      console.log('PSSdata CAMPUS', data);
       dispatch(putSingleStudent(data));
+
+      //**THIS removes SingleCampus > StudentCampusCards after Unenroll, but prevents StudentPage from immediately updating after Update Form submitted:
+      //dispatch(fetchSingleStudent(data.id));
+
+      //**THIS Updates StudentPage immediately after submitting Student Update Form, but breaks Unenroll button on SingleCampus > StudentCampusCard
       dispatch(fetchSingleStudent(data[1].id));
     } catch (err) {
       console.log('Err updating student: ', err);

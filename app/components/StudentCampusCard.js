@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeStudent } from '../redux/students';
+import { updateStudent } from '../redux/students';
 
 // campus null (not obj)
 // campusId null (not num)
 
 const StudentCampusCard = props => {
-  const { id, firstName, lastName, gpa, email, deleteStudent } = props;
+  //console.log('STUDENT CC PROPS', props);
+  const { id, firstName, lastName, gpa, email } = props;
 
   const notEnrolled = 'Not enrolled';
   const campus = props.campus || notEnrolled;
@@ -59,7 +60,7 @@ const StudentCampusCard = props => {
             <button
               type="submit"
               className="ui label delete-button"
-              onClick={() => deleteStudent(id)}
+              onClick={() => props.updateStudentCampus(id, { campusId: 0 })}
             >
               <i className="minus square icon" />
               Unenroll
@@ -73,7 +74,7 @@ const StudentCampusCard = props => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteStudent: student => dispatch(removeStudent(student))
+    updateStudent: student => dispatch(updateStudent(student))
   };
 };
 

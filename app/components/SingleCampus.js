@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchSingleCampus } from '../redux/campuses';
+import { updateStudent } from '../redux/students';
 import CampusProfile from './CampusProfile';
 import StudentCampusCard from './StudentCampusCard';
 import UpdateCampus from './UpdateCampus';
@@ -54,7 +55,10 @@ class SingleCampus extends Component {
             filteredStudents.map(student => {
               return (
                 <div key={student.id}>
-                  <StudentCampusCard {...student} />
+                  <StudentCampusCard
+                    {...student}
+                    updateStudentCampus={this.props.updateStudentCampus}
+                  />
                 </div>
               );
             })
@@ -75,7 +79,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadSingleCampus: id => dispatch(fetchSingleCampus(id))
+    loadSingleCampus: id => dispatch(fetchSingleCampus(id)),
+    updateStudentCampus: (id, student) => dispatch(updateStudent(id, student))
   };
 };
 

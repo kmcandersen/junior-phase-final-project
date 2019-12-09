@@ -38,7 +38,9 @@ class StudentPage extends Component {
                 <span
                   className="header header-link"
                   id="header-profile-student"
-                >{`${firstName} ${lastName}`}</span>
+                >
+                  {`${firstName} ${lastName}`}
+                </span>
 
                 {campus === 'Not enrolled' ? (
                   <div className="meta">
@@ -54,14 +56,14 @@ class StudentPage extends Component {
                 <div className="extra content">
                   <span className="right floated">{gpa}</span>
                   <span>
-                    <i className="graduation cap icon"></i>
+                    <i className="graduation cap icon" />
                     GPA
                   </span>
                 </div>
-                <div className="ui divider div-sm"></div>
+                <div className="ui divider div-sm" />
                 <div className="extra content">
                   <span>
-                    <i className="envelope icon"></i>
+                    <i className="envelope icon" />
                     Email
                     <span className="right floated">{email}</span>
                   </span>

@@ -38,21 +38,34 @@ router.post('/', async (req, res, next) => {
 // PUT api/students/id
 router.put('/:id/', async (req, res, next) => {
   try {
-    const { firstName, lastName, gpa, email } = req.body;
-    const updatedStudent = await Student.update(
-      {
-        firstName,
-        lastName,
-        gpa,
-        email,
-        imageUrl: `https://robohash.org/${firstName}?set=set2`
-      },
-      {
-        where: { id: req.params.id },
-        returning: true,
-        plain: true
-      }
-    );
+    console.log('inside PUT', req.body);
+    if (req.body.campusId === 0) {
+      const updatedCampusStudent = await Student.findOne({
+        where: {
+          id: req.params.id
+        }
+      });
+      updatedCampusStudent.setCampus(null);
+      console.log('inside PUT - updatedCS', updatedCampusStudent);
+      res.json(updatedCampusStudent);
+    } else {
+      const { firstName, lastName, gpa, email } = req.body;
+      const updatedStudent = await Student.update(
+        {
+          firstName,
+          lastName,
+          gpa,
+          email,
+          imageUrl: `https://robohash.org/${firstName}?set=set2`
+        },
+        {
+          where: { id: req.params.id },
+          returning: true,
+          plain: true
+        }
+      );
+      res.json(updatedStudent);
+    }
     // const upStudent = await Student.findOne({
     //   where: {
     //     id: req.params.id
@@ -61,7 +74,6 @@ router.put('/:id/', async (req, res, next) => {
 
     //console.log('updated student', updatedStudent[1]);
     // console.log('up student', upStudent);
-    res.json(updatedStudent);
   } catch (err) {
     next(err);
   }

@@ -11,7 +11,7 @@ const StudentCard = props => {
     <div className="custom-card">
       <div className="ui card">
         <div className="image">
-          <img src={imageUrl}></img>
+          <img src={imageUrl} />
         </div>
         <div className="content">
           <Link to={`/students/${id}`}>
@@ -24,7 +24,7 @@ const StudentCard = props => {
             <Fragment>
               <span className="right floated">{notEnrolled}</span>
               <span>
-                <i className="building icon"></i>
+                <i className="building icon" />
                 Campus
               </span>
             </Fragment>
@@ -32,7 +32,7 @@ const StudentCard = props => {
             <Link to={`/campuses/${campus.id}`}>
               <span className="right floated">{campus.name}</span>
               <span>
-                <i className="building icon"></i>
+                <i className="building icon" />
                 Campus
               </span>
             </Link>
@@ -42,13 +42,13 @@ const StudentCard = props => {
         <div className="extra content">
           <span className="right floated">{gpa}</span>
           <span>
-            <i className="graduation cap icon"></i>
+            <i className="graduation cap icon" />
             GPA
           </span>
         </div>
         <div className="extra content">
           <span>
-            <i className="envelope icon"></i>
+            <i className="envelope icon" />
             {email}
           </span>
         </div>
@@ -59,7 +59,7 @@ const StudentCard = props => {
               className="ui label delete-button"
               onClick={() => props.deleteStudent(id)}
             >
-              <i className="minus square icon"></i>
+              <i className="minus square icon" />
               Delete
             </button>
           </span>
