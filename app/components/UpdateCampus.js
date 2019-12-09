@@ -16,7 +16,6 @@ class UpdateCampus extends Component {
   }
 
   handleChange(evt) {
-    //console.log('UHandle ETV', evt.target.value);
     this.setState({
       [evt.target.name]: evt.target.value
     });
@@ -24,10 +23,7 @@ class UpdateCampus extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    // console.log('PROPS INSIDE SUBMIT', this.props);
     const id = this.props.id;
-    //console.log('INSIDE SUBMIT ID & STATE', id, this.state);
-    // const id = Number(this.props.match.params.id);
     this.props.updateCampus(id, this.state);
     this.setState({
       name: '',
@@ -37,7 +33,6 @@ class UpdateCampus extends Component {
   }
 
   render() {
-    //console.log('UPDATE PROPS', singleStudent);
     return (
       <UpdateCampusForm
         {...this.state}
@@ -54,8 +49,5 @@ const mapDispatchToProps = dispatch => {
     updateCampus: (id, campus) => dispatch(updateCampus(id, campus))
   };
 };
-
-// mapState > populate form
-// mapDispatch > access update route
 
 export default connect(null, mapDispatchToProps)(UpdateCampus);

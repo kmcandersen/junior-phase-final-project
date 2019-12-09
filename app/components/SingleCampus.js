@@ -17,7 +17,6 @@ class SingleCampus extends Component {
   }
   render() {
     const campus = this.props.campus;
-    //console.log('SingleCampus PROPS', campus);
 
     const students = this.props.students;
     const filteredStudents = students.filter(

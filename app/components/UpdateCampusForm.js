@@ -1,7 +1,6 @@
 import React from 'react';
 
 const UpdateCampusForm = props => {
-  //console.log('FORM props', props);
   return (
     <div className="centered-parent">
       <div className="ui segment" id="form-segment-addC">

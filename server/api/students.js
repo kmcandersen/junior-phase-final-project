@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Student, Campus } = require('../db');
+const { Student } = require('../db');
 
 // GET api/students
 router.get('/', async (req, res, next) => {
@@ -38,7 +38,6 @@ router.post('/', async (req, res, next) => {
 // PUT api/students/id
 router.put('/:id/', async (req, res, next) => {
   try {
-    console.log('inside PUT', req.body);
     if (req.body.campusId === 0) {
       const updatedCampusStudent = await Student.findOne({
         where: {
@@ -65,19 +64,12 @@ router.put('/:id/', async (req, res, next) => {
       );
       res.json(updatedStudent);
     }
-    // const upStudent = await Student.findOne({
-    //   where: {
-    //     id: req.params.id
-    //   }
-    // });
-
-    //console.log('updated student', updatedStudent[1]);
-    // console.log('up student', upStudent);
   } catch (err) {
     next(err);
   }
 });
 
+// DELETE api/students/id
 router.delete('/:id/', async (req, res, next) => {
   try {
     await Student.destroy({

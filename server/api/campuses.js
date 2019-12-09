@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Campus, Student } = require('../db');
+const { Campus } = require('../db');
 
 // GET api/campuses
 router.get('/', async (req, res, next) => {
@@ -48,7 +48,6 @@ router.put('/:id/', async (req, res, next) => {
         plain: true
       }
     );
-    console.log('UPDATED CAMPUS', updatedCampus);
     res.json(updatedCampus);
   } catch (err) {
     next(err);

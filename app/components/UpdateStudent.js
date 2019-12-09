@@ -17,7 +17,6 @@ class UpdateStudent extends Component {
   }
 
   handleChange(evt) {
-    //console.log('UHandle ETV', evt.target.value);
     this.setState({
       [evt.target.name]: evt.target.value
     });
@@ -25,26 +24,17 @@ class UpdateStudent extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    //console.log('PROPS INSIDE SUBMIT', this.props);
     const id = this.props.id;
-    //console.log('INSIDE SUBMIT ID & STATE', id, this.state);
-    // const id = Number(this.props.match.params.id);
     this.props.updateStudent(id, this.state);
-    //trying to update top profile when update form submitted:
-    //this.props.loadSingleStudent(id);
     this.setState({
       firstName: '',
       lastName: '',
       gpa: '',
       email: ''
     });
-
-    //or student.id from props?
   }
 
   render() {
-    const { singleStudent } = this.props;
-    //console.log('UPDATE PROPS', singleStudent);
     return (
       <UpdateStudentForm
         {...this.state}
@@ -57,7 +47,6 @@ class UpdateStudent extends Component {
 }
 
 const mapStateToProps = state => {
-  //console.log(state);
   return {
     singleStudent: state.singleStudent
   };
@@ -69,8 +58,5 @@ const mapDispatchToProps = dispatch => {
     loadSingleStudent: id => dispatch(fetchSingleStudent(id))
   };
 };
-
-// mapState > populate form
-// mapDispatch > access update route
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateStudent);

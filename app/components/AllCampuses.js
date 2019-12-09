@@ -16,7 +16,6 @@ class AllCampuses extends Component {
   }
 
   render() {
-    //console.log('ALLCAMPUSES', this.props);
     const campuses = this.props.campuses.campuses;
     const students = this.props.students.students;
 

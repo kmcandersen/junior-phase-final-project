@@ -56,7 +56,6 @@ export const postStudent = student => {
   return async dispatch => {
     try {
       const response = await axios.post('/api/students', student);
-      //const newStudent = response.data.student;
       const newStudent = response.data;
       dispatch(addStudent(newStudent));
     } catch (err) {
@@ -92,13 +91,7 @@ export const updateStudent = (id, student) => {
   return async dispatch => {
     try {
       const { data } = await axios.put(`/api/students/${id}`, student);
-      console.log('PSSdata CAMPUS', data);
       dispatch(putSingleStudent(data));
-
-      //**THIS removes SingleCampus > StudentCampusCards after Unenroll, but prevents StudentPage from immediately updating after Update Form submitted:
-      //dispatch(fetchSingleStudent(data.id));
-
-      //**THIS Updates StudentPage immediately after submitting Student Update Form, but breaks Unenroll button on SingleCampus > StudentCampusCard
       dispatch(fetchSingleStudent(data[1].id));
     } catch (err) {
       console.log('Err updating student: ', err);
@@ -144,14 +137,3 @@ export default (state = initialState, action) => {
       return state;
   }
 };
-
-// export default (students = [], action) => {
-//   switch (action.type) {
-//     case SET_STUDENTS:
-//       return action.students;
-//     case ADD_STUDENT:
-//       return [...students, action.student];
-//     default:
-//       return students;
-//   }
-// };

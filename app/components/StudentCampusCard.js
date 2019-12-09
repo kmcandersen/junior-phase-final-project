@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { updateStudent } from '../redux/students';
 
-// campus null (not obj)
-// campusId null (not num)
-
 const StudentCampusCard = props => {
-  //console.log('STUDENT CC PROPS', props);
   const { id, firstName, lastName, gpa, email } = props;
 
   const notEnrolled = 'Not enrolled';

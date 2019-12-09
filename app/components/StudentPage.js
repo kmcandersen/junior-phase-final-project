@@ -14,9 +14,8 @@ class StudentPage extends Component {
     }
   }
 
-  // ***NOTE!! I wasn't able to successfully pass props to a separate "Student Profile" (above the divider) component; otherwise it would have been separate
+  // ***NOTE!! I wasn't able to successfully pass props to a separate "Student Profile" (above the divider) component; otherwise I would have component-ized these elements
   render() {
-    //console.log('STUDENT PAGE this.props', this.props);
     const { singleStudent } = this.props;
     const imageUrl = singleStudent.imageUrl || '';
     const firstName = singleStudent.firstName || '';

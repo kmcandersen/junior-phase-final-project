@@ -92,12 +92,10 @@ export const updateCampus = (id, campus) => {
   return async dispatch => {
     try {
       const { data } = await axios.put(`/api/campuses/${id}`, campus);
-
-      console.log('U-CAMPUS data', data);
       dispatch(putSingleCampus(data));
       dispatch(fetchSingleCampus(data[1].id));
       dispatch(fetchCampuses());
-      //**so StudentCampusCards updates immediately after submitting Campus Update--doesn't work [matches redux/students.js]
+      //**incl so StudentCampusCards updates immediately after submitting Campus Update--doesn't work [matches syntax in redux/students.js]
       dispatch(fetchSingleStudent(data[1].id));
     } catch (err) {
       console.log('Err updating campus: ', err);

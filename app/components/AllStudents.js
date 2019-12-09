@@ -15,7 +15,6 @@ class AllStudents extends Component {
 
   render() {
     const { students } = this.props.students;
-    //console.log('ALLSTUDENTS this.props', this.props);
     return (
       <div className="centered-parent">
         <div className="horiz-menu-row">

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const Home = ({ students, campuses }) => {
   return (
     <div className="centered-parent main">
-      <div class="school-name">
+      <div className="school-name">
         <p>
           Margaret
           <span>
