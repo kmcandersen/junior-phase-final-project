@@ -58,7 +58,7 @@ export const postStudent = student => {
     try {
       const response = await axios.post('/api/students', student);
       //const newStudent = response.data.student;
-      const newStudent = response.data.student;
+      const newStudent = response.data;
       dispatch(addStudent(newStudent));
     } catch (err) {
       console.log('Err adding student: ', err);

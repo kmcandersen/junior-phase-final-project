@@ -1,21 +1,8 @@
 import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeStudent } from '../redux/students';
-
-// campus null (not obj)
-// campusId null (not num)
 
 const StudentCard = props => {
-  const {
-    id,
-    imageUrl,
-    firstName,
-    lastName,
-    gpa,
-    email,
-    deleteStudent
-  } = props;
+  const { id, imageUrl, firstName, lastName, gpa, email } = props;
 
   const notEnrolled = 'Not enrolled';
   const campus = props.campus || notEnrolled;
@@ -70,7 +57,7 @@ const StudentCard = props => {
             <button
               type="submit"
               className="ui label delete-button"
-              onClick={() => deleteStudent(id)}
+              onClick={() => props.deleteStudent(id)}
             >
               <i className="minus square icon"></i>
               Delete
@@ -82,10 +69,4 @@ const StudentCard = props => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    deleteStudent: student => dispatch(removeStudent(student))
-  };
-};
-
-export default connect(null, mapDispatchToProps)(StudentCard);
+export default StudentCard;
