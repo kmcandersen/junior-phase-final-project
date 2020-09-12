@@ -17,6 +17,7 @@
     "skeleton"
   ],
   "dependencies": {
+    "@babel/polyfill": "^7.8.3",
     "axios": "^0.19.0",
     "body-parser": "^1.18.2",
     "chalk": "^2.4.1",
